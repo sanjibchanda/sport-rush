@@ -8,7 +8,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"), // Your main entry point (e.g., home page)
-        cart: resolve(__dirname, "cart.html"), // Additional HTML pages
+        // cart: resolve(__dirname, "cart.html"), // Additional HTML pages
         // Add more entry points for other HTML files as needed
       },
     },
