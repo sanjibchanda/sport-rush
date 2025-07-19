@@ -1,18 +1,137 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
-  --font-poppins: Poppins, sans-serif;
+  --color-primary: #007bff;
+  --color-secondary: #000;
+  --color-teritory: #34a853;
+  --color-accent: #333333;
+  --color-muted: #999999;
+  --color-border: #d9d9d9;
+  --color-surface: #f5f5f5;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: Poppins, sans-serif;
 }
 
 body {
-  @apply font-poppins;
+  @apply font-body;
 }
 
 @layer utilities {
   .container {
   }
 }
-/** CSS for toast notifications */
-.toast {
-  @apply fixed top-4 right-4 px-4 py-3 text-sm text-white bg-black rounded-sm shadow-lg;
+
+h1 {
+  @apply text-[3rem] lg:text-[4rem];
+  line-height: 1.2;
+}
+h2 {
+  @apply text-[2rem] lg:text-[3rem];
+  line-height: 1.2;
+}
+h3 {
+  @apply text-[1.5rem] lg:text-[2rem];
+  line-height: 1.2;
+}
+h4 {
+  @apply text-[1.125rem] lg:text-[1.25rem];
+  line-height: 1.2;
+}
+.text-base {
+  @apply text-[1rem] lg:text-[1.125rem];
+  line-height: 1.6;
+}
+/* .text-sm {
+  @apply text-[0.75rem] lg:text-[1rem];
+  line-height: 1.6;
+} */
+.space-section {
+  @apply py-[3rem] lg:py-[4rem];
+}
+.space-block {
+  @apply py-[2rem] lg:py-[2.5rem];
+}
+.space-content {
+  @apply py-[1.25rem] lg:py-[1.5rem];
+}
+.space-title {
+  @apply py-[0.75rem] lg:py-[1rem];
+}
+
+.navMenu img {
+  @apply max-w-[1.25rem];
+}
+.navMenu li {
+  @apply text-base font-medium font-heading;
+}
+.hero-bg {
+  background: url(../images/hero-bg.jpg) no-repeat center bottom;
+  background-size: cover;
+}
+.bg-offer1 {
+  background-image: url(../images/offer1.jpg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-offer2 {
+  background-image: url(../images/offer2.jpg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-offer3 {
+  background-image: url(../images/offer3.jpg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-promotion {
+  background-image: url(../images/bg-promotion.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* slick-slider */
+.slick-slider,
+.slick-list,
+.slick-track,
+.slick-slide,
+.slick-slide > div,
+.slick-slide > div > div {
+  @apply h-full w-full;
+}
+.slick-dots li {
+  @apply size-3 bg-white rounded-full;
+}
+.slick-dots li.slick-active {
+  @apply w-8;
+}
+
+.single-item .slick-dots {
+  bottom: 1.5rem;
+}
+
+.feedback-slider .slick-slide {
+  margin-inline: 0.5rem;
+}
+.feedback-slider .slick-prev {
+  @apply bg-primary rounded-sm size-10 top-full -left-1/2;
+}
+.feedback-slider .slick-next {
+  @apply bg-primary rounded-sm size-10 top-full -left-5/12 right-auto;
+}
+
+.news-slider .slick-slide {
+  margin-inline: 0.5rem;
+}
+.news-slider .slick-dots {
+  bottom: -3rem;
+}
+.news-slider .slick-dots li {
+  @apply size-3 bg-black rounded-full;
+}
+.news-slider .slick-dots li.slick-active {
+  @apply w-8;
 }

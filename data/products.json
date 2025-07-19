@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Ultraboost 5 Shoes",
+    "category": "Women Running",
+    "price": 45.0,
+    "oldPrice": 50.0,
+    "discount": "save 25%",
+    "img": "/images/product/Galaxy7RunningShoes-1.png",
+    "tag": "New"
+  },
+  {
+    "id": 2,
+    "title": "Supernova Stride 2 Running Shoes",
+    "category": "Men Running",
+    "price": 60.0,
+    "oldPrice": 75.0,
+    "discount": "save 30%",
+    "img": "/images/product/SupernovaStride2RunningShoes_Black.png",
+    "tag": "Hot"
+  },
+  {
+    "id": 3,
+    "title": "Predator League Turf Boots",
+    "category": "Football",
+    "price": 80.0,
+    "oldPrice": 99.0,
+    "discount": "save 19%",
+    "img": "/images/product/PredatorLeagueTurfBoots_Red.png",
+    "tag": "Trending"
+  },
+  {
+    "id": 4,
+    "title": "Nike Pegasus Premium",
+    "category": "Men Running",
+    "price": 80.0,
+    "oldPrice": 99.0,
+    "discount": "save 19%",
+    "img": "/images/product/NikePegasusPremium.jpg",
+    "tag": "Trending"
+  }
+]
