@@ -103,10 +103,20 @@ h4 {
   @apply h-full w-full;
 }
 .slick-dots li {
-  @apply size-3 bg-white rounded-full;
+  width: auto !important;
+  height: auto !important;
 }
-.slick-dots li.slick-active {
-  @apply w-8;
+.slick-dots li button {
+  width: calc(var(--spacing) * 3) !important;
+  height: calc(var(--spacing) * 3) !important;
+  border-radius: calc(infinity * 1px) !important;
+  background-color: var(--color-white) !important;
+}
+.slick-dots li button:before {
+  content: none !important;
+}
+.slick-dots li.slick-active button {
+  width: calc(var(--spacing) * 6) !important;
 }
 
 .single-item .slick-dots {
@@ -122,16 +132,30 @@ h4 {
 .feedback-slider .slick-next {
   @apply bg-primary rounded-sm size-10 top-full -left-5/12 right-auto;
 }
+.feedback-slider .slick-prev:hover,
+.feedback-slider .slick-prev:focus,
+.feedback-slider .slick-next:hover,
+.feedback-slider .slick-next:focus {
+  @apply bg-primary;
+}
+.feedback-slider .slick-prev:before,
+.feedback-slider .slick-next:before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 700;
+}
+.feedback-slider .slick-prev:before {
+  content: "\f104";
+}
+.feedback-slider .slick-next:before {
+  content: "\f105";
+}
 
 .news-slider .slick-slide {
   margin-inline: 0.5rem;
 }
 .news-slider .slick-dots {
-  bottom: -3rem;
+  bottom: -2rem;
 }
-.news-slider .slick-dots li {
-  @apply size-3 bg-black rounded-full;
-}
-.news-slider .slick-dots li.slick-active {
-  @apply w-8;
+.news-slider .slick-dots li button {
+  background-color: var(--color-black) !important;
 }

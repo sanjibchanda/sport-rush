@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Ultraboost 5 Shoes",
+    "title": "Ultraboost 5",
     "category": "Women Running",
     "price": 45.0,
     "oldPrice": 50.0,
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "title": "Supernova Stride 2 Running Shoes",
+    "title": "Supernova Stride 2",
     "category": "Men Running",
     "price": 60.0,
     "oldPrice": 75.0,
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "title": "Predator League Turf Boots",
+    "title": "Predator League",
     "category": "Football",
     "price": 80.0,
     "oldPrice": 99.0,
