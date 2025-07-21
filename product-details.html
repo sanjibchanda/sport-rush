@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sport-rush</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body>
+  <!-- top-bar -->
+  <section class="bg-primary text-white text-center">
+    <div class="container max-w-[1320px] mx-auto px-3 py-3">
+      <p class="font-heading font-medium text-sm lg:text-base">Today Only: Up to <span
+          class="bg-black inline-block rounded-sm px-1 lg:px-2">40%</span> Off
+        Best-Selling
+        Gear!</p>
+    </div>
+  </section>
+
+  <!-- header -->
+  <header class="sticky top-0 left-0 w-full z-50 bg-white shadow">
+    <div class="container max-w-[1320px] mx-auto px-3">
+      <div class="flex items-center justify-between py-4">
+        <div class="w-full lg:w-auto flex items-center justify-between">
+          <img src="./images/logo-dark.svg" alt="logo" class="max-w-[160px] lg:max-w-[220px]" />
+          <!-- Hamburger -->
+          <ul class="flex items-center gap-3 navMenu">
+            <li class="lg:hidden"><a href="#"><img src="./images/search.svg" alt="search"></a></li>
+            <li class="lg:hidden"><a href="#"><img src="./images/shopping-cart-outlined.svg" alt="shopping-cart"></a>
+            </li>
+            <li>
+              <button class="text-xl lg:hidden" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Nav Menu -->
+        <div id="mobileMenu"
+          class="fixed top-0 right-0 h-full w-[320px] bg-white shadow-lg p-4 z-50 transform translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:p-0 lg:w-auto lg:shadow-none lg:bg-transparent transition-transform duration-300 ease-in-out">
+          <!-- Close Button -->
+          <div class="flex justify-end mb-4 lg:hidden">
+            <button class="text-2xl" onclick="toggleMenu()" aria-label="Close Menu">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Menu Links -->
+          <ul class="navMenu flex flex-col lg:flex-row lg:items-center gap-4">
+            <li><a href="#" class="block p-2 hover:text-blue-600">Shop</a></li>
+            <li><a href="#" class="block p-2 hover:text-blue-600">Shop by Sport</a></li>
+            <li><a href="#" class="block p-2 hover:text-blue-600">Deals & Offers</a></li>
+            <li><a href="#" class="block p-2 hover:text-blue-600">Accessories</a></li>
+            <li><a href="#" class="block p-2 hover:text-blue-600">Contact Us</a></li>
+            <li class="lg:hidden"><a href="#" class="block p-2 hover:text-blue-600">Account</a></li>
+            <li class="lg:hidden"><a href="#" class="block p-2 hover:text-blue-600">Wishlist</a></li>
+            <li class="hidden lg:block"><a href="#"><img src="./images/search.svg" alt="search"></a></li>
+            <li class="hidden lg:block"><a href="#"><img src="./images/user.svg" alt="user"></a></li>
+            <li class="hidden lg:block"><a href="#"><img src="./images/wishlist.svg" alt="wishlist"></a></li>
+            <li class="hidden lg:block"><a href="#"><img src="./images/shopping-cart-outlined.svg"
+                  alt="shopping-cart"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- banner -->
+  <section class="bg-shop py-24 text-accent mb-12">
+    <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
+      <h2 class="font-heading font-semibold uppercase">Product Details</h2>
+      <ul class="flex items-center gap-3 text-lg flex-wrap">
+        <li><a href="/">Home</a></li>
+        <li><i class="fa-solid fa-angle-right"></i></li>
+        <li><span class="text-primary">Running Shoes</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="mb-12 md:mb-16 xl:mb-20">
+    <div class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10">
+      <div class="flex flex-col sm:flex-row gap-12">
+        <div class="sm:w-1/2">
+          <div class="w-full mx-auto"><img alt="product" src="./images/product/Galaxy7RunningShoes-4.jpg"></div>
+        </div>
+        <div class="sm:w-1/2 space-y-4">
+          <div class="uppercase font-medium flex items-center text-accent gap-1">
+            <span>men</span>
+            <i class="fa-solid fa-circle text-[8px]"></i>
+            <span>Running</span>
+          </div>
+          <h3 class="font-heading font-semibold text-accent">Ultraboost 5</h3>
+          <div class="flex items-center gap-2">
+            <span class="flex items-center gap-1">
+              <i class="fa-solid fa-star text-amber-300"></i>
+              <span class="font-medium">4.5 Ratings</span>
+            </span>
+            <i class="fa-solid fa-circle text-[8px] text-muted"></i>
+            <span class="text-muted">(97 reviews)</span>
+            <i class="fa-solid fa-circle text-[8px]  text-muted"></i>
+            <span class="text-green-500">194+ Sold</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="font-heading font-semibold text-3xl">$90.00</span>
+            <span class="line-through text-muted">$100</span>
+            <span class="bg-green-100 text-green-700 px-2 border border-green-200 py-1 text-xs rounded-full">Save
+              10%</span>
+          </div>
+          <span class="inline-block px-4 py-1 rounded-full border border-border text-sm text-muted"><i
+              class="fa-solid fa-circle-exclamation mr-1"></i> Order in <span
+              class="text-black font-medium">02:30:30</span> to get
+            next day delivery</span>
+          <div class="space-y-1">
+            <span class="block">Color:</span>
+            <div class="flex items-center gap-2">
+              <div class="border rounded-sm px-2 py-1 border-border">
+                <input id="black" class="opacity-0 absolute" type="radio" value="color" checked="" name="color">
+                <label for="black" class="cursor-pointer">
+                  <span class="text-sm">black</span>
+                </label>
+              </div>
+              <div class="border rounded-sm px-2 py-1 border-border">
+                <input id="red" class="opacity-0 absolute" type="radio" value="color" checked="" name="color">
+                <label for="red" class="cursor-pointer">
+                  <span class="text-sm">red</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-between">
+            <div class="space-y-1">
+              <span class="block">Size:</span>
+              <div class="flex items-center gap-2">
+                <div class="border rounded-sm px-2 py-1 border-border">
+                  <input id="black" class="opacity-0 absolute" type="radio" value="color" checked="" name="color">
+                  <label for="black" class="cursor-pointer">
+                    <span class="text-sm">6</span>
+                  </label>
+                </div>
+                <div class="border rounded-sm px-2 py-1 border-border">
+                  <input id="red" class="opacity-0 absolute" type="radio" value="color" checked="" name="color">
+                  <label for="red" class="cursor-pointer">
+                    <span class="text-sm">7</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1">
+              <img src="images/ruler.svg" alt="ruler">
+              <span class="text-muted text-sm underline">Size Guide</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3 px-3 py-2 border-2 border-border rounded-full font-medium text-accent">
+              <button><i class="fa-solid fa-minus"></i></button>
+              <span>1</span>
+              <button><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <button type="button"
+              class="px-8 py-3 rounded-full text-xl font-medium transition bg-black text-white hover:bg-black/70 hover:text-white w-full">Proceed
+              to Checkout <i class="fa-solid fa-angle-right ml-2"></i>
+            </button>
+            <span class="bg-gray-900 text-white p-3 sm:text-xl rounded-full inline-block cursor-pointer">
+              <i class="fa-regular fa-heart"></i>
+            </span>
+          </div>
+          <ul class="space-y-4 mt-6">
+            <li class="flex items-center gap-4"><img src="images/fast-delivery.png" alt="fast-delivery" class="w-8">
+              Free Delivery, Free Returns</li>
+            <li class="flex items-center gap-4"><img src="images/security.png" alt="security" class="w-8"> COD
+              available for orders below ₹5000</li>
+            <li class="flex items-center gap-4"><img src="images/return.png" alt="return" class="w-8"> Secure
+              transactions with hassle free 14 days Exchange
+              and Returns</li>
+            <li class="flex items-center gap-4"><img src="images/save-money.png" alt="save-money" class="w-8"> Save
+              5% on all Online Payments under Rs 5000/-
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- terms section -->
+  <section class="bg-surface py-12 ">
+    <div class="container max-w-[1340px] mx-auto px-3 ">
+      <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div class="space-y-3">
+          <div class="flex gap-3"><img alt="Secure Shopping" src="./images/secure.svg">
+            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Secure Shopping</p>
+          </div>
+          <p class="text-muted text-sm">Your data and payments are always protected with advanced encryption.</p>
+        </div>
+        <div class="space-y-3">
+          <div class="flex gap-3">
+            <img alt="Fast & Reliable Shipping" src="./images/shipping-van.svg">
+            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Fast & Reliable Shipping</p>
+          </div>
+          <p class="text-muted text-sm">Trackable delivery with same-day dispatch on most orders.</p>
+        </div>
+        <div class="space-y-3">
+          <div class="flex gap-3"><img alt="24/7 Customer Support" src="./images/support.svg">
+            <p class="font-heading font-semibold text-base lg:text-lg text-accent">24/7 Customer Support</p>
+          </div>
+          <p class="text-muted text-sm">We’re here whenever you need help or advice.</p>
+        </div>
+        <div class="space-y-3">
+          <div class="flex gap-3"><img alt="Easy Returns &amp; Exchanges" src="./images/exchange.svg">
+            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Easy Returns &amp; Exchanges</p>
+          </div>
+          <p class="text-muted text-sm">Hassle-free process within 30 days of purchase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer section -->
+  <section class="bg-black text-white py-12 md:py-16 xl:py-20">
+    <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-6">
+        <div class="space-y-4 sm:col-span-2 lg:col-span-1"><a aria-current="page" class="block active" href="/"
+            data-discover="true"><img alt="logo" class="logo" src="./images/logo-light.svg"></a>
+          <p>Your trusted source for high-performance sports gear. Built for athletes. Designed for results.</p>
+          <ul>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-phone"></i><a href="/" data-discover="true">+1 (800) 123-SPORT</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-envelope"></i><a href="/" data-discover="true">support@SportRush.com</a>
+            </li>
+          </ul>
+          <ul class="flex items-center gap-2 text-xl">
+            <li><a href="/" data-discover="true">
+                <i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="/" data-discover="true"><i class="fa-brands fa-square-facebook"></i></a></li>
+            <li><a href="/" data-discover="true"><i class="fa-brands fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <p class="font-heading text-xl font-semibold">Quick Links</p>
+          <ul class="grid grid-cols-2 gap-2">
+            <li><a href="/" data-discover="true">About Us</a></li>
+            <li><a href="/" data-discover="true">Contact</a></li>
+            <li><a href="/" data-discover="true">FAQs</a></li>
+            <li><a href="/" data-discover="true">Shipping &amp; Returns</a></li>
+            <li><a href="/" data-discover="true">Payment Methods</a></li>
+            <li><a href="/" data-discover="true">Terms &amp; Conditions</a></li>
+            <li><a href="/" data-discover="true">Privacy Policy</a></li>
+            <li><a href="/" data-discover="true">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <p class="font-heading text-xl font-semibold">Quick Links</p>
+          <p>Get exclusive discounts, training tips, and new product launches straight to your inbox.</p>
+          <div class="flex">
+            <div
+              class="w-full flex items-center gap-2 px-2 py-3 bg-white text-accent border border-gray-300 rounded-l-sm focus-visible:outline-none">
+              <i class="fa-regular fa-envelope text-muted"></i><input placeholder="Enter your email"
+                class="w-full focus-visible:outline-0 " type="email" value="">
+            </div><button
+              class="bg-white text-accent px-4 py-2 rounded-r-sm hover:bg-primary-dark transition">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <hr class="border-t border-gray-500">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2">
+        <p class="text-muted text-sm order-1 sm:order-0">© 2025 SportRush rights reserved.</p>
+        <div class="flex items-center gap-1">
+          <img alt="card" src="./images/amex.svg">
+          <img alt="card" src="./images/discover.svg">
+          <img alt="card" src="./images/mastercard.svg">
+          <img alt="card" src="./images/visa.svg">
+          <img alt="card" src="./images/shop.svg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script type="module" src="./src/main.js"></script>
+
+</body>
+
+</html>

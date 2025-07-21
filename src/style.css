@@ -92,6 +92,12 @@ h4 {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.bg-shop {
+  background-image: url(../images/bg-promotion.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /* slick-slider */
 .slick-slider,
