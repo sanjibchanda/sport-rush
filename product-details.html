@@ -1,297 +1,855 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sport-rush</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sport-rush</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="./src/style.css">
-</head>
+  <body>
+    <!-- top-bar -->
+    <section class="bg-primary text-white text-center">
+      <div class="container max-w-[1320px] mx-auto px-3 py-3">
+        <p class="font-heading font-medium text-sm lg:text-base">
+          Today Only: Up to
+          <span class="bg-black inline-block rounded-sm px-1 lg:px-2">40%</span>
+          Off Best-Selling Gear!
+        </p>
+      </div>
+    </section>
 
-<body>
-  <!-- top-bar -->
-  <section class="bg-primary text-white text-center">
-    <div class="container max-w-[1320px] mx-auto px-3 py-3">
-      <p class="font-heading font-medium text-sm lg:text-base">Today Only: Up to <span
-          class="bg-black inline-block rounded-sm px-1 lg:px-2">40%</span> Off
-        Best-Selling
-        Gear!</p>
-    </div>
-  </section>
+    <!-- header -->
+    <header class="sticky top-0 left-0 w-full z-50 bg-white shadow">
+      <div class="container max-w-[1320px] mx-auto px-3">
+        <div class="flex items-center justify-between py-4">
+          <div class="w-full lg:w-auto flex items-center justify-between">
+            <img
+              src="./images/logo-dark.svg"
+              alt="logo"
+              class="max-w-[160px] lg:max-w-[220px]"
+            />
+            <!-- Hamburger -->
+            <ul class="flex items-center gap-3 navMenu">
+              <li class="lg:hidden">
+                <a href="#"><img src="./images/search.svg" alt="search" /></a>
+              </li>
+              <li class="lg:hidden">
+                <a href="#"
+                  ><img
+                    src="./images/shopping-cart-outlined.svg"
+                    alt="shopping-cart"
+                /></a>
+              </li>
+              <li>
+                <button class="text-xl lg:hidden" aria-label="Toggle Menu">
+                  <i class="fa-solid fa-bars"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
 
-  <!-- header -->
-  <header class="sticky top-0 left-0 w-full z-50 bg-white shadow">
-    <div class="container max-w-[1320px] mx-auto px-3">
-      <div class="flex items-center justify-between py-4">
-        <div class="w-full lg:w-auto flex items-center justify-between">
-          <img src="./images/logo-dark.svg" alt="logo" class="max-w-[160px] lg:max-w-[220px]" />
-          <!-- Hamburger -->
-          <ul class="flex items-center gap-3 navMenu">
-            <li class="lg:hidden"><a href="#"><img src="./images/search.svg" alt="search"></a></li>
-            <li class="lg:hidden"><a href="#"><img src="./images/shopping-cart-outlined.svg" alt="shopping-cart"></a>
-            </li>
-            <li>
-              <button class="text-xl lg:hidden" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars"></i>
+          <!-- Nav Menu -->
+          <div
+            id="mobileMenu"
+            class="fixed top-0 right-0 h-full w-[320px] bg-white shadow-lg p-4 z-50 transform translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:p-0 lg:w-auto lg:shadow-none lg:bg-transparent transition-transform duration-300 ease-in-out"
+          >
+            <!-- Close Button -->
+            <div class="flex justify-end mb-4 lg:hidden">
+              <button
+                class="text-2xl"
+                onclick="toggleMenu()"
+                aria-label="Close Menu"
+              >
+                <i class="fa-solid fa-xmark"></i>
               </button>
-            </li>
-          </ul>
-        </div>
+            </div>
 
-        <!-- Nav Menu -->
-        <div id="mobileMenu"
-          class="fixed top-0 right-0 h-full w-[320px] bg-white shadow-lg p-4 z-50 transform translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:p-0 lg:w-auto lg:shadow-none lg:bg-transparent transition-transform duration-300 ease-in-out">
-          <!-- Close Button -->
-          <div class="flex justify-end mb-4 lg:hidden">
-            <button class="text-2xl" onclick="toggleMenu()" aria-label="Close Menu">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
+            <!-- Menu Links -->
+            <ul class="navMenu flex flex-col lg:flex-row lg:items-center gap-4">
+              <li>
+                <a href="#" class="block p-2 hover:text-blue-600">Shop</a>
+              </li>
+              <li>
+                <a href="#" class="block p-2 hover:text-blue-600"
+                  >Shop by Sport</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block p-2 hover:text-blue-600"
+                  >Deals & Offers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block p-2 hover:text-blue-600"
+                  >Accessories</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block p-2 hover:text-blue-600">Contact Us</a>
+              </li>
+              <li class="lg:hidden">
+                <a href="#" class="block p-2 hover:text-blue-600">Account</a>
+              </li>
+              <li class="lg:hidden">
+                <a href="#" class="block p-2 hover:text-blue-600">Wishlist</a>
+              </li>
+              <li class="hidden lg:block">
+                <a href="#"><img src="./images/search.svg" alt="search" /></a>
+              </li>
+              <li class="hidden lg:block">
+                <a href="#"><img src="./images/user.svg" alt="user" /></a>
+              </li>
+              <li class="hidden lg:block">
+                <a href="#"
+                  ><img src="./images/wishlist.svg" alt="wishlist"
+                /></a>
+              </li>
+              <li class="hidden lg:block">
+                <a href="#"
+                  ><img
+                    src="./images/shopping-cart-outlined.svg"
+                    alt="shopping-cart"
+                /></a>
+              </li>
+            </ul>
           </div>
-
-          <!-- Menu Links -->
-          <ul class="navMenu flex flex-col lg:flex-row lg:items-center gap-4">
-            <li><a href="#" class="block p-2 hover:text-blue-600">Shop</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Shop by Sport</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Deals & Offers</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Accessories</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Contact Us</a></li>
-            <li class="lg:hidden"><a href="#" class="block p-2 hover:text-blue-600">Account</a></li>
-            <li class="lg:hidden"><a href="#" class="block p-2 hover:text-blue-600">Wishlist</a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/search.svg" alt="search"></a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/user.svg" alt="user"></a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/wishlist.svg" alt="wishlist"></a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/shopping-cart-outlined.svg"
-                  alt="shopping-cart"></a></li>
-          </ul>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- banner -->
-  <section class="bg-shop py-24 text-accent mb-12">
-    <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
-      <h2 class="font-heading font-semibold uppercase">Product Details</h2>
-      <ul class="flex items-center gap-3 text-lg flex-wrap">
-        <li><a href="/">Home</a></li>
-        <li><i class="fa-solid fa-angle-right"></i></li>
-        <li><span class="text-primary">Running Shoes</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="mb-12 md:mb-16 xl:mb-20">
-    <div class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10">
-      <div class="flex flex-col sm:flex-row gap-12">
-        <div class="sm:w-1/2">
-          <div class="w-full mx-auto"><img alt="product" src="./images/product/Galaxy7RunningShoes-4.jpg"></div>
-        </div>
-        <div class="sm:w-1/2 space-y-4">
-          <div class="uppercase font-medium flex items-center text-accent gap-1">
-            <span>men</span>
-            <i class="fa-solid fa-circle text-[8px]"></i>
-            <span>Running</span>
-          </div>
-          <h3 class="font-heading font-semibold text-accent">Ultraboost 5</h3>
-          <div class="flex items-center gap-2">
-            <span class="flex items-center gap-1">
-              <i class="fa-solid fa-star text-amber-300"></i>
-              <span class="font-medium">4.5 Ratings</span>
-            </span>
-            <i class="fa-solid fa-circle text-[8px] text-muted"></i>
-            <span class="text-muted">(97 reviews)</span>
-            <i class="fa-solid fa-circle text-[8px]  text-muted"></i>
-            <span class="text-green-500">194+ Sold</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="font-heading font-semibold text-3xl">$90.00</span>
-            <span class="line-through text-muted">$100</span>
-            <span class="bg-green-100 text-green-700 px-2 border border-green-200 py-1 text-xs rounded-full">Save
-              10%</span>
-          </div>
-          <span class="inline-block px-4 py-1 rounded-full border border-border text-sm text-muted"><i
-              class="fa-solid fa-circle-exclamation mr-1"></i> Order in <span
-              class="text-black font-medium">02:30:30</span> to get
-            next day delivery</span>
-          <div class="space-y-1">
-            <span class="block">Color:</span>
-            <div class="flex items-center gap-2">
-              <div class="border rounded-sm px-2 py-1 border-border">
-                <input id="black" class="opacity-0 absolute" type="radio" value="color" checked="" name="color">
-                <label for="black" class="cursor-pointer">
-                  <span class="text-sm">black</span>
-                </label>
-              </div>
-              <div class="border rounded-sm px-2 py-1 border-border">
-                <input id="red" class="opacity-0 absolute" type="radio" value="color" checked="" name="color">
-                <label for="red" class="cursor-pointer">
-                  <span class="text-sm">red</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-between">
-            <div class="space-y-1">
-              <span class="block">Size:</span>
-              <div class="flex items-center gap-2">
-                <div class="border rounded-sm px-2 py-1 border-border">
-                  <input id="black" class="opacity-0 absolute" type="radio" value="color" checked="" name="color">
-                  <label for="black" class="cursor-pointer">
-                    <span class="text-sm">6</span>
-                  </label>
-                </div>
-                <div class="border rounded-sm px-2 py-1 border-border">
-                  <input id="red" class="opacity-0 absolute" type="radio" value="color" checked="" name="color">
-                  <label for="red" class="cursor-pointer">
-                    <span class="text-sm">7</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-1">
-              <img src="images/ruler.svg" alt="ruler">
-              <span class="text-muted text-sm underline">Size Guide</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-4">
-            <div class="flex items-center gap-3 px-3 py-2 border-2 border-border rounded-full font-medium text-accent">
-              <button><i class="fa-solid fa-minus"></i></button>
-              <span>1</span>
-              <button><i class="fa-solid fa-plus"></i></button>
-            </div>
-            <button type="button"
-              class="px-8 py-3 rounded-full text-xl font-medium transition bg-black text-white hover:bg-black/70 hover:text-white w-full">Proceed
-              to Checkout <i class="fa-solid fa-angle-right ml-2"></i>
-            </button>
-            <span class="bg-gray-900 text-white p-3 sm:text-xl rounded-full inline-block cursor-pointer">
-              <i class="fa-regular fa-heart"></i>
-            </span>
-          </div>
-          <ul class="space-y-4 mt-6">
-            <li class="flex items-center gap-4"><img src="images/fast-delivery.png" alt="fast-delivery" class="w-8">
-              Free Delivery, Free Returns</li>
-            <li class="flex items-center gap-4"><img src="images/security.png" alt="security" class="w-8"> COD
-              available for orders below ₹5000</li>
-            <li class="flex items-center gap-4"><img src="images/return.png" alt="return" class="w-8"> Secure
-              transactions with hassle free 14 days Exchange
-              and Returns</li>
-            <li class="flex items-center gap-4"><img src="images/save-money.png" alt="save-money" class="w-8"> Save
-              5% on all Online Payments under Rs 5000/-
-            </li>
-          </ul>
-        </div>
+    <!-- banner -->
+    <section class="bg-shop py-24 text-accent mb-12">
+      <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
+        <h2 class="font-heading font-semibold uppercase">Product Details</h2>
+        <ul class="flex items-center gap-3 text-lg flex-wrap">
+          <li><a href="/">Home</a></li>
+          <li><i class="fa-solid fa-angle-right"></i></li>
+          <li><span class="text-primary">Running Shoes</span></li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-
-  <!-- terms section -->
-  <section class="bg-surface py-12 ">
-    <div class="container max-w-[1340px] mx-auto px-3 ">
-      <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
-        <div class="space-y-3">
-          <div class="flex gap-3"><img alt="Secure Shopping" src="./images/secure.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Secure Shopping</p>
+    <!-- product-details section -->
+    <section class="mb-12 md:mb-16 xl:mb-20">
+      <div
+        class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10"
+      >
+        <div class="flex flex-col sm:flex-row gap-12">
+          <div class="sm:w-1/2">
+            <div class="w-full mx-auto">
+              <img
+                alt="product"
+                src="./images/product/Galaxy7RunningShoes-4.jpg"
+              />
+            </div>
           </div>
-          <p class="text-muted text-sm">Your data and payments are always protected with advanced encryption.</p>
-        </div>
-        <div class="space-y-3">
-          <div class="flex gap-3">
-            <img alt="Fast & Reliable Shipping" src="./images/shipping-van.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Fast & Reliable Shipping</p>
-          </div>
-          <p class="text-muted text-sm">Trackable delivery with same-day dispatch on most orders.</p>
-        </div>
-        <div class="space-y-3">
-          <div class="flex gap-3"><img alt="24/7 Customer Support" src="./images/support.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">24/7 Customer Support</p>
-          </div>
-          <p class="text-muted text-sm">We’re here whenever you need help or advice.</p>
-        </div>
-        <div class="space-y-3">
-          <div class="flex gap-3"><img alt="Easy Returns &amp; Exchanges" src="./images/exchange.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Easy Returns &amp; Exchanges</p>
-          </div>
-          <p class="text-muted text-sm">Hassle-free process within 30 days of purchase.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- footer section -->
-  <section class="bg-black text-white py-12 md:py-16 xl:py-20">
-    <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-6">
-        <div class="space-y-4 sm:col-span-2 lg:col-span-1"><a aria-current="page" class="block active" href="/"
-            data-discover="true"><img alt="logo" class="logo" src="./images/logo-light.svg"></a>
-          <p>Your trusted source for high-performance sports gear. Built for athletes. Designed for results.</p>
-          <ul>
-            <li class="flex items-center gap-2">
-              <i class="fa-solid fa-phone"></i><a href="/" data-discover="true">+1 (800) 123-SPORT</a>
-            </li>
-            <li class="flex items-center gap-2">
-              <i class="fa-solid fa-envelope"></i><a href="/" data-discover="true">support@SportRush.com</a>
-            </li>
-          </ul>
-          <ul class="flex items-center gap-2 text-xl">
-            <li><a href="/" data-discover="true">
-                <i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="/" data-discover="true"><i class="fa-brands fa-square-facebook"></i></a></li>
-            <li><a href="/" data-discover="true"><i class="fa-brands fa-linkedin"></i></a></li>
-          </ul>
-        </div>
-        <div class="space-y-4">
-          <p class="font-heading text-xl font-semibold">Quick Links</p>
-          <ul class="grid grid-cols-2 gap-2">
-            <li><a href="/" data-discover="true">About Us</a></li>
-            <li><a href="/" data-discover="true">Contact</a></li>
-            <li><a href="/" data-discover="true">FAQs</a></li>
-            <li><a href="/" data-discover="true">Shipping &amp; Returns</a></li>
-            <li><a href="/" data-discover="true">Payment Methods</a></li>
-            <li><a href="/" data-discover="true">Terms &amp; Conditions</a></li>
-            <li><a href="/" data-discover="true">Privacy Policy</a></li>
-            <li><a href="/" data-discover="true">Cookie Policy</a></li>
-          </ul>
-        </div>
-        <div class="space-y-4">
-          <p class="font-heading text-xl font-semibold">Quick Links</p>
-          <p>Get exclusive discounts, training tips, and new product launches straight to your inbox.</p>
-          <div class="flex">
+          <div class="sm:w-1/2 space-y-4">
             <div
-              class="w-full flex items-center gap-2 px-2 py-3 bg-white text-accent border border-gray-300 rounded-l-sm focus-visible:outline-none">
-              <i class="fa-regular fa-envelope text-muted"></i><input placeholder="Enter your email"
-                class="w-full focus-visible:outline-0 " type="email" value="">
-            </div><button
-              class="bg-white text-accent px-4 py-2 rounded-r-sm hover:bg-primary-dark transition">Subscribe</button>
+              class="uppercase font-medium flex items-center text-accent gap-1"
+            >
+              <span>men</span>
+              <i class="fa-solid fa-circle text-[8px]"></i>
+              <span>Running</span>
+            </div>
+            <h3 class="font-heading font-semibold text-accent">Ultraboost 5</h3>
+            <div class="flex items-center gap-2">
+              <span class="flex items-center gap-1">
+                <i class="fa-solid fa-star text-amber-300"></i>
+                <span class="font-medium">4.5 Ratings</span>
+              </span>
+              <i class="fa-solid fa-circle text-[8px] text-muted"></i>
+              <span class="text-muted">(97 reviews)</span>
+              <i class="fa-solid fa-circle text-[8px] text-muted"></i>
+              <span class="text-green-500">194+ Sold</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="font-heading font-semibold text-3xl">$90.00</span>
+              <span class="line-through text-muted">$100</span>
+              <span
+                class="bg-green-100 text-green-700 px-2 border border-green-200 py-1 text-xs rounded-full"
+                >Save 10%</span
+              >
+            </div>
+            <span
+              class="inline-block px-4 py-1 rounded-full border border-border text-sm text-muted"
+              ><i class="fa-solid fa-circle-exclamation mr-1"></i> Order in
+              <span class="text-black font-medium">02:30:30</span> to get next
+              day delivery</span
+            >
+            <div class="space-y-1">
+              <span class="block font-medium">Color:</span>
+              <div class="flex items-center gap-2">
+                <div class="relative">
+                  <input
+                    id="black"
+                    class="opacity-0 absolute"
+                    type="radio"
+                    value="color"
+                    checked=""
+                    name="color"
+                  />
+                  <label
+                    for="black"
+                    class="border rounded-sm px-2 py-1 border-border cursor-pointer"
+                  >
+                    <span class="text-sm">black</span>
+                  </label>
+                </div>
+                <div class="relative">
+                  <input
+                    id="red"
+                    class="opacity-0 absolute"
+                    type="radio"
+                    value="color"
+                    checked=""
+                    name="color"
+                  />
+                  <label
+                    for="red"
+                    class="border rounded-sm px-2 py-1 border-border cursor-pointer"
+                  >
+                    <span class="text-sm">red</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <div class="space-y-1">
+                <span class="block font-medium">Size:</span>
+                <div class="flex items-center gap-2">
+                  <div class="relative">
+                    <input
+                      id="size6"
+                      class="opacity-0 absolute"
+                      type="radio"
+                      value="size"
+                      checked=""
+                      name="size"
+                    />
+                    <label
+                      for="size6"
+                      class="cursor-pointer border rounded-sm px-3 py-1 border-border"
+                    >
+                      <span class="text-sm">6</span>
+                    </label>
+                  </div>
+                  <div class="relative">
+                    <input
+                      id="size7"
+                      class="opacity-0 absolute"
+                      type="radio"
+                      value="size"
+                      checked=""
+                      name="size"
+                    />
+                    <label
+                      for="size7"
+                      class="border rounded-sm px-3 py-1 border-border cursor-pointer"
+                    >
+                      <span class="text-sm">7</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-1">
+                <img src="images/ruler.svg" alt="ruler" />
+                <span class="text-muted text-sm underline">Size Guide</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+              <div class="space-y-1">
+                <span class="block font-medium">Quantity:</span>
+                <div class="flex items-center gap-3 font-medium text-accent">
+                  <button class="border rounded-sm px-2 py-1 border-border">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <span>1</span>
+                  <button class="border rounded-sm px-2 py-1 border-border">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="flex items-center gap-1 text-muted text-sm">
+                Stock Available: <span class="text-accent font-medium">21</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <button
+                type="button"
+                class="px-8 py-3 rounded-full text-xl font-medium transition bg-black text-white hover:bg-black/70 hover:text-white w-full"
+              >
+                Proceed to Checkout <i class="fa-solid fa-angle-right ml-2"></i>
+              </button>
+              <span
+                class="bg-gray-300 text-black px-4 py-3 sm:text-xl rounded-full inline-block cursor-pointer"
+              >
+                <i class="fa-regular fa-heart"></i>
+              </span>
+            </div>
+            <ul class="space-y-4 mt-6">
+              <li class="flex items-center gap-4">
+                <img
+                  src="images/fast-delivery.png"
+                  alt="fast-delivery"
+                  class="w-8"
+                />
+                Free Delivery, Free Returns
+              </li>
+              <li class="flex items-center gap-4">
+                <img src="images/security.png" alt="security" class="w-8" /> COD
+                available for orders below ₹5000
+              </li>
+              <li class="flex items-center gap-4">
+                <img src="images/return.png" alt="return" class="w-8" /> Secure
+                transactions with hassle free 14 days Exchange and Returns
+              </li>
+              <li class="flex items-center gap-4">
+                <img src="images/save-money.png" alt="save-money" class="w-8" />
+                Save 5% on all Online Payments under Rs 5000/-
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <ul id="accordion">
+            <li class="border-b border-border py-4 flex gap-4 cursor-pointer">
+              <div class="accordion-header w-full">
+                <div class="flex items-center justify-between">
+                  <p class="text-lg font-medium">Description</p>
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div
+                  class="accordion-content text-sm text-muted mt-4 space-y-2"
+                >
+                  <p class="font-medium text-accent">
+                    Everyday running shoes made to help you go the distance.
+                  </p>
+                  <p>
+                    From the track to the treadmill, run toward your goals in
+                    these running shoes from adidas. The cushy Cloudfoam midsole
+                    feels soft and supportive from the minute you step in. A
+                    breathable mesh upper and durable Adiwear go-to trainers
+                    perfect for all-day wear.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="border-b border-border py-4 flex gap-4 cursor-pointer">
+              <div class="accordion-header w-full">
+                <div class="flex items-center justify-between">
+                  <p class="text-lg font-medium">Specifications</p>
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div
+                  class="accordion-content text-muted text-sm mt-4 space-y-2"
+                >
+                  <p class="font-medium text-accent">General Specifications</p>
+                  <ul class="grid grid-cols-2 gap-2">
+                    <li>Regular fit</li>
+                    <li>Lace closure</li>
+                    <li>Mesh upper</li>
+                    <li>Textile lining</li>
+                    <li>OrthoLite® sockliner</li>
+                    <li>Cloudfoam midsole</li>
+                    <li>Weight: 304 g (size UK 8.5)</li>
+                    <li>Midsole drop: 10 mm (heel 33 mm / forefoot 23 mm)</li>
+                    <li>Adiwear outsole</li>
+                    <li>Colour: Core Black / Cloud White / Core Black</li>
+                    <li>Product code: JR5089</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="border-b border-border py-4 flex gap-4 cursor-pointer">
+              <div class="accordion-header w-full">
+                <div class="flex items-center justify-between">
+                  <p class="text-lg font-medium">What's in The Box?</p>
+                  <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div
+                  class="accordion-content text-muted text-sm mt-4 space-y-2"
+                >
+                  <ul class="space-y-2 sm:w-1/2">
+                    <li class="grid grid-cols-4 gap-2">
+                      <span>Net Quantity:</span>
+                      <span class="col-span-3">1 Pair</span>
+                    </li>
+                    <li class="grid grid-cols-4 gap-2">
+                      <span>Gender:</span> <span class="col-span-3">Male</span>
+                    </li>
+                    <li class="grid grid-cols-4 gap-2">
+                      <span>Country of Origin:</span>
+                      <span class="col-span-3">INDIA</span>
+                    </li>
+                    <li class="grid grid-cols-4 gap-4">
+                      <span>Name and Address of Manufacturer:</span>
+                      <span class="col-span-3"
+                        >adidas India Marketing Private Limited, Office no. 6,
+                        2nd Floor, Sector-B, Pocket no. 7, Plot no. 11, Vasant
+                        Kunj, New Delhi - 110070</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- review section -->
+    <section class="mb-12 md:mb-16 xl:mb-20">
+      <div
+        class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10"
+      >
+        <h3 class="text-accent font-semibold font-heading">
+          Customers Reviews
+        </h3>
+        <div class="flex flex-col md:flex-row gap-12">
+          <div class="md:w-1/3 space-y-4">
+            <div class="flex items-center gap-4 border-b border-border pb-4">
+              <div class="font-heading font-semibold">
+                <span class="text-5xl">3.8</span><span>/5</span>
+              </div>
+              <div class="text-sm space-y-1">
+                <div class="flex gap-1 text-neutral-500">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="text-muted">5 global ratings</p>
+              </div>
+            </div>
+            <ul class="space-y-1">
+              <li class="flex items-center gap-2 text-sm">
+                <span class="w-16">5 star</span
+                ><span class="bg-surface rounded-full h-2 w-full"
+                  ><span
+                    class="bg-black h-full block rounded-full"
+                    style="width: 40%"
+                  ></span></span
+                ><span class="w-10 text-end">40%</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <span class="w-16">4 star</span
+                ><span class="bg-surface rounded-full h-2 w-full"
+                  ><span
+                    class="bg-black h-full block rounded-full"
+                    style="width: 40%"
+                  ></span></span
+                ><span class="w-10 text-end">40%</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <span class="w-16">3 star</span
+                ><span class="bg-surface rounded-full h-2 w-full"
+                  ><span
+                    class="bg-black h-full block rounded-full"
+                    style="width: 0%"
+                  ></span></span
+                ><span class="w-10 text-end">0%</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <span class="w-16">2 star</span
+                ><span class="bg-surface rounded-full h-2 w-full"
+                  ><span
+                    class="bg-black h-full block rounded-full"
+                    style="width: 20%"
+                  ></span></span
+                ><span class="w-10 text-end">20%</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm">
+                <span class="w-16">1 star</span
+                ><span class="bg-surface rounded-full h-2 w-full"
+                  ><span
+                    class="bg-black h-full block rounded-full"
+                    style="width: 0%"
+                  ></span></span
+                ><span class="w-10 text-end">0%</span>
+              </li>
+            </ul>
+          </div>
+          <div class="md:w-2/3 space-y-6">
+            <ul class="space-y-4">
+              <li class="space-y-4 border-b border-border pb-4">
+                <div class="flex justify-between">
+                  <div class="flex gap-1 text-neutral-500 text-sm">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                  </div>
+                  <div class="text-xs text-muted">Today</div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="font-medium">John Doe</span
+                  ><span class="flex items-center gap-1 text-muted text-sm"
+                    ><i class="fa-solid fa-circle-check"></i> Verified
+                    Customer</span
+                  >
+                </div>
+                <p class="text-sm/6 text-muted">
+                  I have been using various ANC headphones for years and I
+                  bought these because my Airpods Pro got spoiled and I forgot
+                  my Bose Quiet Control 30s at home while traveling. It looks
+                  pretty good with impressive fit and finish. The buttons feel
+                  well built yet the headphone is quite light. It did not hurt
+                  my ears even after long hours of continuous use.
+                </p>
+              </li>
+              <li class="space-y-4 border-b border-border pb-4">
+                <div class="flex justify-between">
+                  <div class="flex gap-1 text-neutral-500 text-sm">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <div class="text-xs text-muted">Yesterday</div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="font-medium">Jane Smith</span
+                  ><span class="flex items-center gap-1 text-muted text-sm"
+                    ><i class="fa-solid fa-circle-check"></i> Verified
+                    Customer</span
+                  >
+                </div>
+                <p class="text-sm/6 text-muted">
+                  Absolutely love the design and sound quality. Very comfortable
+                  and long battery life. Highly recommended!
+                </p>
+              </li>
+              <li class="space-y-4 border-b border-border pb-4">
+                <div class="flex justify-between">
+                  <div class="flex gap-1 text-neutral-500 text-sm">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <div class="text-xs text-muted">3 days ago</div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="font-medium">Alice</span
+                  ><span class="flex items-center gap-1 text-muted text-sm"
+                    ><i class="fa-solid fa-circle-check"></i> Verified
+                    Customer</span
+                  >
+                </div>
+                <p class="text-sm/6 text-muted">
+                  Great value for the price. Noise cancellation could be better,
+                  but overall solid performance.
+                </p>
+              </li>
+              <li class="space-y-4 border-b border-border pb-4">
+                <div class="flex justify-between">
+                  <div class="flex gap-1 text-neutral-500 text-sm">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <div class="text-xs text-muted">Last week</div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="font-medium">Bob</span
+                  ><span class="flex items-center gap-1 text-muted text-sm"
+                    ><i class="fa-solid fa-circle-check"></i> Verified
+                    Customer</span
+                  >
+                </div>
+                <p class="text-sm/6 text-muted">Not very comfortable.</p>
+              </li>
+              <li class="space-y-4 border-b border-border pb-4">
+                <div class="flex justify-between">
+                  <div class="flex gap-1 text-neutral-500 text-sm">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <div class="text-xs text-muted">Today</div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="font-medium">Charlie</span
+                  ><span class="flex items-center gap-1 text-muted text-sm"
+                    ><i class="fa-solid fa-circle-check"></i> Verified
+                    Customer</span
+                  >
+                </div>
+                <p class="text-sm/6 text-muted">Nice design, good battery.</p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <hr class="border-t border-gray-500">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p class="text-muted text-sm order-1 sm:order-0">© 2025 SportRush rights reserved.</p>
-        <div class="flex items-center gap-1">
-          <img alt="card" src="./images/amex.svg">
-          <img alt="card" src="./images/discover.svg">
-          <img alt="card" src="./images/mastercard.svg">
-          <img alt="card" src="./images/visa.svg">
-          <img alt="card" src="./images/shop.svg">
+    </section>
+
+    <!-- product section -->
+    <section class="mb-12 md:mb-16 xl:mb-20">
+      <div
+        class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10"
+      >
+        <div class="space-y-4 text-center max-w-2xl mx-auto">
+          <h3 class="text-accent font-semibold font-heading">
+            You may also like
+          </h3>
+          <p class="text-muted text-sm lg:text-base">
+            Top Picks from Our Athletes
+          </p>
+        </div>
+        <div
+          id="products"
+          class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        ></div>
+      </div>
+    </section>
+
+    <!-- faq section -->
+    <section class="mb-12 md:mb-16 xl:mb-20">
+      <div
+        class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10"
+      >
+        <div class="space-y-4 text-center max-w-2xl mx-auto">
+          <h3 class="text-accent font-semibold font-heading">
+            Frequently Asked Questions
+          </h3>
+        </div>
+        <div class="max-w-3xl mx-auto">
+          <ul id="accordion">
+            <li class="border-b border-border py-4 flex gap-4 cursor-pointer">
+              <div class="accordion-header w-full">
+                <div class="flex items-center justify-between ">
+                  <p class="text-lg  font-medium">Latest Gear Drops</p><i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div class="accordion-content text-sm text-muted pt-2">Be the first to know about new arrivals in tech,
+                  lifestyle, and gear.
+                </div>
+              </div>
+            </li>
+            <li class="border-b border-border py-4 flex gap-4 cursor-pointer">
+              <div class="accordion-header w-full">
+                <div class="flex items-center justify-between ">
+                  <p class="text-lg font-medium">Exclusive Member Offers</p><i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div class="accordion-content text-sm text-muted pt-2">Get access to members-only deals, early-bird
+                  pricing,
+                  and secret sales.
+                </div>
+              </div>
+            </li>
+            <li class="border-b border-border py-4 flex gap-4 cursor-pointer">
+              <div class="accordion-header w-full">
+                <div class="flex items-center justify-between ">
+                  <p class="text-lg  font-medium">Weekly Industry Updates</p><i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div class="accordion-content text-sm text-muted pt-2">Stay informed with curated updates on trends,
+                  news,
+                  and insights.
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script type="module" src="./src/main.js"></script>
+    <!-- terms section -->
+    <section class="bg-surface py-12">
+      <div class="container max-w-[1340px] mx-auto px-3">
+        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img alt="Secure Shopping" src="./images/secure.svg" />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                Secure Shopping
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              Your data and payments are always protected with advanced
+              encryption.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img
+                alt="Fast & Reliable Shipping"
+                src="./images/shipping-van.svg"
+              />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                Fast & Reliable Shipping
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              Trackable delivery with same-day dispatch on most orders.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img alt="24/7 Customer Support" src="./images/support.svg" />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                24/7 Customer Support
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              We’re here whenever you need help or advice.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img
+                alt="Easy Returns &amp; Exchanges"
+                src="./images/exchange.svg"
+              />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                Easy Returns &amp; Exchanges
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              Hassle-free process within 30 days of purchase.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</body>
+    <!-- footer section -->
+    <section class="bg-black text-white py-12 md:py-16 xl:py-20">
+      <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-6">
+          <div class="space-y-4 sm:col-span-2 lg:col-span-1">
+            <a
+              aria-current="page"
+              class="block active"
+              href="/"
+              data-discover="true"
+              ><img alt="logo" class="logo" src="./images/logo-light.svg"
+            /></a>
+            <p>
+              Your trusted source for high-performance sports gear. Built for
+              athletes. Designed for results.
+            </p>
+            <ul>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-phone"></i
+                ><a href="/" data-discover="true">+1 (800) 123-SPORT</a>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-envelope"></i
+                ><a href="/" data-discover="true">support@SportRush.com</a>
+              </li>
+            </ul>
+            <ul class="flex items-center gap-2 text-xl">
+              <li>
+                <a href="/" data-discover="true">
+                  <i class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="/" data-discover="true"
+                  ><i class="fa-brands fa-square-facebook"></i
+                ></a>
+              </li>
+              <li>
+                <a href="/" data-discover="true"
+                  ><i class="fa-brands fa-linkedin"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <p class="font-heading text-xl font-semibold">Quick Links</p>
+            <ul class="grid grid-cols-2 gap-2">
+              <li><a href="/" data-discover="true">About Us</a></li>
+              <li><a href="/" data-discover="true">Contact</a></li>
+              <li><a href="/" data-discover="true">FAQs</a></li>
+              <li>
+                <a href="/" data-discover="true">Shipping &amp; Returns</a>
+              </li>
+              <li><a href="/" data-discover="true">Payment Methods</a></li>
+              <li>
+                <a href="/" data-discover="true">Terms &amp; Conditions</a>
+              </li>
+              <li><a href="/" data-discover="true">Privacy Policy</a></li>
+              <li><a href="/" data-discover="true">Cookie Policy</a></li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <p class="font-heading text-xl font-semibold">Quick Links</p>
+            <p>
+              Get exclusive discounts, training tips, and new product launches
+              straight to your inbox.
+            </p>
+            <div class="flex">
+              <div
+                class="w-full flex items-center gap-2 px-2 py-3 bg-white text-accent border border-gray-300 rounded-l-sm focus-visible:outline-none"
+              >
+                <i class="fa-regular fa-envelope text-muted"></i
+                ><input
+                  placeholder="Enter your email"
+                  class="w-full focus-visible:outline-0"
+                  type="email"
+                  value=""
+                />
+              </div>
+              <button
+                class="bg-white text-accent px-4 py-2 rounded-r-sm hover:bg-primary-dark transition"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr class="border-t border-gray-500" />
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-2"
+        >
+          <p class="text-muted text-sm order-1 sm:order-0">
+            © 2025 SportRush rights reserved.
+          </p>
+          <div class="flex items-center gap-1">
+            <img alt="card" src="./images/amex.svg" />
+            <img alt="card" src="./images/discover.svg" />
+            <img alt="card" src="./images/mastercard.svg" />
+            <img alt="card" src="./images/visa.svg" />
+            <img alt="card" src="./images/shop.svg" />
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
 </html>
