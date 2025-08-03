@@ -127,8 +127,12 @@ async function renderProductDetail() {
           }" class="bg-gray-200 text-black px-4 py-3 sm:text-xl rounded inline-block cursor-pointer">
             <i class="fa-solid fa-cart-shopping"></i>
           </button>
-          <span class="bg-gray-200 text-black px-4 py-3 sm:text-xl rounded inline-block cursor-pointer">
-            <i class="fa-regular fa-heart"></i>
+          <span class="wishlist-toggle bg-gray-200 text-black px-4 py-3 sm:text-xl rounded inline-block cursor-pointer" data-id="${
+            product.id
+          }">
+            <i class="${
+              isInWishlist(product.id) ? "fa-solid" : "fa-regular"
+            } fa-heart"></i>
           </span>
         </div>
       </div>
@@ -193,6 +197,89 @@ async function renderProductDetail() {
     }
   }
 
+  function getWishlist() {
+    return JSON.parse(localStorage.getItem("wishlist")) || [];
+  }
+
+  function isInWishlist(productId) {
+    const wishlist = getWishlist();
+    return wishlist.includes(productId.toString());
+  }
+
+  function setupWishlistToggleForDetailPage() {
+    const wishlistBtn = document.querySelector(".wishlist-toggle");
+    if (!wishlistBtn) return;
+
+    wishlistBtn.addEventListener("click", () => {
+      const productId = wishlistBtn.dataset.id;
+      let wishlist = getWishlist();
+      let wishlistSelections =
+        JSON.parse(localStorage.getItem("wishlistSelections")) || {};
+      const icon = wishlistBtn.querySelector("i");
+
+      const selectedColor = document
+        .querySelector('input[name="color"]:checked')
+        .nextElementSibling.textContent.trim();
+      const selectedSize = document
+        .querySelector('input[name="size"]:checked')
+        .nextElementSibling.textContent.trim();
+
+      if (wishlist.includes(productId)) {
+        // Remove from Wishlist
+        wishlist = wishlist.filter((id) => id !== productId);
+        delete wishlistSelections[productId];
+        icon.classList.remove("fa-solid");
+        icon.classList.add("fa-regular");
+      } else {
+        // Add to Wishlist with current color & size
+        wishlist.push(productId);
+        wishlistSelections[productId] = {
+          color: selectedColor,
+          size: selectedSize,
+        };
+        icon.classList.remove("fa-regular");
+        icon.classList.add("fa-solid");
+      }
+
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      localStorage.setItem(
+        "wishlistSelections",
+        JSON.stringify(wishlistSelections)
+      );
+      updateHeaderCounts();
+    });
+  }
+
+  function addProductToWishlist() {
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    let wishlistSelections =
+      JSON.parse(localStorage.getItem("wishlistSelections")) || {};
+
+    const productId = product.id.toString();
+    const selectedColor = document
+      .querySelector('input[name="color"]:checked')
+      .nextElementSibling.textContent.trim();
+    const selectedSize = document
+      .querySelector('input[name="size"]:checked')
+      .nextElementSibling.textContent.trim();
+
+    if (!wishlist.includes(productId)) {
+      wishlist.push(productId);
+    }
+
+    wishlistSelections[productId] = {
+      color: selectedColor,
+      size: selectedSize,
+    };
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    localStorage.setItem(
+      "wishlistSelections",
+      JSON.stringify(wishlistSelections)
+    );
+    updateHeaderCounts();
+  }
+
   // Event Listeners
   document.getElementById("addToCart").addEventListener("click", () => {
     addProductToCartAndGo(); // Add to cart only
@@ -201,6 +288,8 @@ async function renderProductDetail() {
   document.getElementById("checkoutBtn").addEventListener("click", () => {
     addProductToCartAndGo("checkout.html"); // Add to cart and redirect to checkout
   });
+
+  setupWishlistToggleForDetailPage();
 }
 
 renderProductDetail();

@@ -135,3 +135,10 @@ function onFilterChange(filters) {
   const filteredProducts = applyFilters(allProducts, filters);
   renderProducts(filteredProducts, ".productContainer"); // Always render in main grid for filters
 }
+
+document.querySelectorAll(".navigate-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const url = btn.dataset.url; // Read data-url attribute
+    window.location.href = url; // Navigate to the page
+  });
+});
