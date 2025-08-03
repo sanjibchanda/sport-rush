@@ -140,26 +140,122 @@
       </div>
     </header>
 
-    <!-- banner -->
-    <section class="bg-shop py-24 text-accent mb-12">
-      <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
-        <h2 class="font-heading font-semibold uppercase">Categories</h2>
-        <ul class="flex items-center gap-3 text-lg flex-wrap">
-          <li><a href="/">Home</a></li>
-          <li><i class="fa-solid fa-angle-right"></i></li>
-          <li><span class="text-primary">Running Shoes</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="mb-12 md:mb-16 xl:mb-20">
+    <!-- order-details section -->
+    <section class="my-12 md:my-16 xl:my-20">
       <div
         class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10"
       >
-        <div
-          id="products"
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-        ></div>
+        <div class="bg-surface px-4 lg:py-10 py-10">
+          <div class="max-w-lg mx-auto space-y-6 text-accent text-center">
+            <img
+              alt="shippingBox"
+              class="mx-auto"
+              srcset="/images/shippingBox.png 1x, /images/shippingBox@2x.png 2x"
+              src="/images/shippingBox.png"
+            />
+            <h4 class="font-heading font-semibold uppercase">
+              Thank You for Your Order!
+            </h4>
+            <p class="text-muted">
+              We’ve received your order and are getting it ready to ship. You’ll
+              receive a confirmation email with tracking details shortly.
+            </p>
+            <div class="flex items-center justify-center gap-2">
+              <img alt="shipping" src="./images/shipping-icon.svg" /><span
+                >Express Shipping (1-3 Days)</span
+              ><span class="font-medium">Cost: $9.00</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-surface px-4 lg:px-10 py-10 space-y-6 text-accent">
+          <p class="font-heading font-semibold text-lg uppercase">
+            Order Summary
+          </p>
+          <div>
+            <div class="flex gap-4 py-4 border-b border-border">
+              <div class="bg-white p-2 size-20 rounded-sm relative">
+                <img
+                  alt="SupernovaStride2RunningShoes_Black"
+                  class="w-full h-full object-contain"
+                  src="/images/product/SupernovaStride2RunningShoes_Black.png"
+                />
+                <span
+                  class="absolute -top-2 -right-2 bg-gray-400 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                  >1</span
+                >
+              </div>
+              <div class="w-full flex gap-4 justify-between">
+                <div class="space-y-1 w-full">
+                  <p class="font-semibold font-heading">Supernova Stride 2</p>
+                  <p class="text-sm text-muted">item: #12345</p>
+                  <div class="flex gap-2">
+                    <p class="text-sm">
+                      <span class="font-medium">Color:</span> <span>Black</span>
+                    </p>
+                    <p class="text-sm">
+                      <span class="font-medium">Size:</span> <span>6</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-col justify-between items-end">
+                  <p class="font-semibold font-heading">$90.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-surface px-4 lg:px-10 py-10 space-y-6 text-accent">
+          <p class="font-heading font-semibold text-lg uppercase">
+            Order ID: NAE40650799
+          </p>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="space-y-4">
+              <p class="text-lg font-heading font-semibold">
+                Shipping Address:
+              </p>
+              <ul class="space-y-1 text-sm">
+                <li class="font-semibold">test test</li>
+                <li>5738 Coventry Lane</li>
+                <li>Kolkata, WB – 46804</li>
+                <li class="font-semibold">India</li>
+                <li><span class="font-semibold">Phone:</span> 02025550115</li>
+                <li>
+                  <span class="font-semibold">Email:</span> test1@test.com
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-4">
+              <p class="text-lg font-heading font-semibold">Payment Method:</p>
+              <div class="flex items-center gap-2 text-sm">
+                <img alt="Visa" src="./images/visa.svg" /><span
+                  >N/A (**** **** **** 0000)</span
+                >
+              </div>
+              <div class="text-sm">Cash on Delivery</div>
+            </div>
+            <div class="space-y-4">
+              <p class="text-lg font-heading font-semibold">Order Summary:</p>
+              <ul class="space-y-3">
+                <li class="flex items-center justify-between font-medium">
+                  <span>Subtotal</span><span>$90.00</span>
+                </li>
+                <li class="flex items-center justify-between">
+                  <span>Discount</span><span>$10.00</span>
+                </li>
+                <li class="flex items-center justify-between">
+                  <span>Shipping &amp; Handling</span
+                  ><span class="">$9.00</span>
+                </li>
+                <li><hr class="border-b border-border" /></li>
+                <li
+                  class="flex items-center justify-between font-medium text-lg"
+                >
+                  <span>Total</span><span>$89.00</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

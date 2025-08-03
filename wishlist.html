@@ -39,13 +39,11 @@
       <div class="container max-w-[1320px] mx-auto px-3">
         <div class="flex items-center justify-between py-4">
           <div class="w-full lg:w-auto flex items-center justify-between">
-            <a href="/">
-              <img
-                src="./images/logo-dark.svg"
-                alt="logo"
-                class="max-w-[160px] lg:max-w-[220px]"
-              />
-            </a>
+            <img
+              src="./images/logo-dark.svg"
+              alt="logo"
+              class="max-w-[160px] lg:max-w-[220px]"
+            />
             <!-- Hamburger -->
             <ul class="flex items-center gap-3 navMenu">
               <li class="lg:hidden">
@@ -143,23 +141,26 @@
     <!-- banner -->
     <section class="bg-shop py-24 text-accent mb-12">
       <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
-        <h2 class="font-heading font-semibold uppercase">Categories</h2>
+        <h2 class="font-heading font-semibold uppercase">Wishlist</h2>
         <ul class="flex items-center gap-3 text-lg flex-wrap">
           <li><a href="/">Home</a></li>
           <li><i class="fa-solid fa-angle-right"></i></li>
-          <li><span class="text-primary">Running Shoes</span></li>
+          <li><span class="text-primary">Wishlist</span></li>
         </ul>
       </div>
     </section>
 
+    <!-- Wishlist section -->
     <section class="mb-12 md:mb-16 xl:mb-20">
       <div
         class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10"
       >
-        <div
-          id="products"
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-        ></div>
+        <div class="bg-surface px-4 lg:px-10 py-10 space-y-6 text-accent">
+          <p class="font-heading font-semibold text-lg uppercase">Wishlist</p>
+          <div id="wishlistContainer">
+            <!-- Wishlist Products Render Here -->
+          </div>
+        </div>
       </div>
     </section>
 
@@ -336,6 +337,7 @@
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script type="module" src="./src/main.js"></script>
+    <!-- <script type="module" src="./src/main.js"></script> -->
+    <script src="./src/wishlist.js" type="module"></script>
   </body>
 </html>

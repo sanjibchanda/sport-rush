@@ -1,197 +1,671 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sport-rush</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sport-rush</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="./src/style.css">
-</head>
+  <body>
+    <!-- top-bar -->
+    <section class="bg-primary text-white text-center">
+      <div class="container max-w-[1320px] mx-auto px-3 py-3">
+        <p class="font-heading font-medium text-sm lg:text-base">
+          Today Only: Up to
+          <span class="bg-black inline-block rounded-sm px-1 lg:px-2">40%</span>
+          Off Best-Selling Gear!
+        </p>
+      </div>
+    </section>
 
-<body>
-  <!-- top-bar -->
-  <section class="bg-primary text-white text-center">
-    <div class="container max-w-[1320px] mx-auto px-3 py-3">
-      <p class="font-heading font-medium text-sm lg:text-base">Today Only: Up to <span
-          class="bg-black inline-block rounded-sm px-1 lg:px-2">40%</span> Off
-        Best-Selling
-        Gear!</p>
-    </div>
-  </section>
+    <!-- header -->
+    <header class="sticky top-0 left-0 w-full z-50 bg-white shadow">
+      <div class="container max-w-[1320px] mx-auto px-3">
+        <div class="flex items-center justify-between py-4">
+          <div class="w-full lg:w-auto flex items-center justify-between">
+            <a href="/">
+              <img
+                src="./images/logo-dark.svg"
+                alt="logo"
+                class="max-w-[160px] lg:max-w-[220px]"
+              />
+            </a>
+            <!-- Hamburger -->
+            <ul class="flex items-center gap-3 navMenu">
+              <li class="lg:hidden">
+                <a href="#"><img src="./images/search.svg" alt="search" /></a>
+              </li>
+              <li class="lg:hidden">
+                <a href="#"
+                  ><img
+                    src="./images/shopping-cart-outlined.svg"
+                    alt="shopping-cart"
+                /></a>
+              </li>
+              <li>
+                <button class="text-xl lg:hidden" aria-label="Toggle Menu">
+                  <i class="fa-solid fa-bars"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
 
-  <!-- header -->
-  <header class="sticky top-0 left-0 w-full z-50 bg-white shadow">
-    <div class="container max-w-[1320px] mx-auto px-3">
-      <div class="flex items-center justify-between py-4">
-        <div class="w-full lg:w-auto flex items-center justify-between">
-          <img src="./images/logo-dark.svg" alt="logo" class="max-w-[160px] lg:max-w-[220px]" />
-          <!-- Hamburger -->
-          <ul class="flex items-center gap-3 navMenu">
-            <li class="lg:hidden"><a href="#"><img src="./images/search.svg" alt="search"></a></li>
-            <li class="lg:hidden"><a href="#"><img src="./images/shopping-cart-outlined.svg" alt="shopping-cart"></a>
-            </li>
-            <li>
-              <button class="text-xl lg:hidden" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars"></i>
+          <!-- Nav Menu -->
+          <div
+            id="mobileMenu"
+            class="fixed top-0 right-0 h-full w-[320px] bg-white shadow-lg p-4 z-50 transform translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:p-0 lg:w-auto lg:shadow-none lg:bg-transparent transition-transform duration-300 ease-in-out"
+          >
+            <!-- Close Button -->
+            <div class="flex justify-end mb-4 lg:hidden">
+              <button
+                class="text-2xl"
+                onclick="toggleMenu()"
+                aria-label="Close Menu"
+              >
+                <i class="fa-solid fa-xmark"></i>
               </button>
-            </li>
-          </ul>
-        </div>
+            </div>
 
-        <!-- Nav Menu -->
-        <div id="mobileMenu"
-          class="fixed top-0 right-0 h-full w-[320px] bg-white shadow-lg p-4 z-50 transform translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:p-0 lg:w-auto lg:shadow-none lg:bg-transparent transition-transform duration-300 ease-in-out">
-          <!-- Close Button -->
-          <div class="flex justify-end mb-4 lg:hidden">
-            <button class="text-2xl" onclick="toggleMenu()" aria-label="Close Menu">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
+            <!-- Menu Links -->
+            <ul class="navMenu flex flex-col lg:flex-row lg:items-center gap-4">
+              <li>
+                <a href="products.html" class="block p-2 hover:text-blue-600"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block p-2 hover:text-blue-600"
+                  >Deals & Offers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block p-2 hover:text-blue-600"
+                  >Accessories</a
+                >
+              </li>
+              <li class="lg:hidden">
+                <a href="#" class="block p-2 hover:text-blue-600">Account</a>
+              </li>
+              <li class="lg:hidden">
+                <a href="#" class="block p-2 hover:text-blue-600">Wishlist</a>
+              </li>
+              <li class="hidden lg:block">
+                <a href="#"><img src="./images/search.svg" alt="search" /></a>
+              </li>
+              <li class="hidden lg:block">
+                <a href="#"><img src="./images/user.svg" alt="user" /></a>
+              </li>
+              <li class="hidden lg:block relative">
+                <a href="wishlist.html"
+                  ><img src="./images/wishlist.svg" alt="wishlist" />
+                  <span
+                    id="wishlistCount"
+                    class="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                    >1</span
+                  >
+                </a>
+              </li>
+              <li class="hidden lg:block relative">
+                <a href="cart.html"
+                  ><img
+                    src="./images/shopping-cart-outlined.svg"
+                    alt="shopping-cart"
+                  />
+                  <span
+                    id="cartCount"
+                    class="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                    >1</span
+                  ></a
+                >
+              </li>
+            </ul>
           </div>
-
-          <!-- Menu Links -->
-          <ul class="navMenu flex flex-col lg:flex-row lg:items-center gap-4">
-            <li><a href="#" class="block p-2 hover:text-blue-600">Shop</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Shop by Sport</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Deals & Offers</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Accessories</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Contact Us</a></li>
-            <li class="lg:hidden"><a href="#" class="block p-2 hover:text-blue-600">Account</a></li>
-            <li class="lg:hidden"><a href="#" class="block p-2 hover:text-blue-600">Wishlist</a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/search.svg" alt="search"></a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/user.svg" alt="user"></a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/wishlist.svg" alt="wishlist"></a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/shopping-cart-outlined.svg"
-                  alt="shopping-cart"></a></li>
-          </ul>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- banner -->
-  <section class="bg-shop py-24 text-accent mb-12">
-    <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
-      <h2 class="font-heading font-semibold uppercase">Categories</h2>
-      <ul class="flex items-center gap-3 text-lg flex-wrap">
-        <li><a href="/">Home</a></li>
-        <li><i class="fa-solid fa-angle-right"></i></li>
-        <li><span class="text-primary">Running Shoes</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="mb-12 md:mb-16 xl:mb-20">
-    <div class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10">
-      <div id="products" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
-    </div>
-  </section>
-
-  <!-- terms section -->
-  <section class="bg-surface py-12 ">
-    <div class="container max-w-[1340px] mx-auto px-3 ">
-      <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
-        <div class="space-y-3">
-          <div class="flex gap-3"><img alt="Secure Shopping" src="./images/secure.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Secure Shopping</p>
-          </div>
-          <p class="text-muted text-sm">Your data and payments are always protected with advanced encryption.</p>
-        </div>
-        <div class="space-y-3">
-          <div class="flex gap-3">
-            <img alt="Fast & Reliable Shipping" src="./images/shipping-van.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Fast & Reliable Shipping</p>
-          </div>
-          <p class="text-muted text-sm">Trackable delivery with same-day dispatch on most orders.</p>
-        </div>
-        <div class="space-y-3">
-          <div class="flex gap-3"><img alt="24/7 Customer Support" src="./images/support.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">24/7 Customer Support</p>
-          </div>
-          <p class="text-muted text-sm">We’re here whenever you need help or advice.</p>
-        </div>
-        <div class="space-y-3">
-          <div class="flex gap-3"><img alt="Easy Returns &amp; Exchanges" src="./images/exchange.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Easy Returns &amp; Exchanges</p>
-          </div>
-          <p class="text-muted text-sm">Hassle-free process within 30 days of purchase.</p>
-        </div>
+    <!-- banner -->
+    <section class="bg-shop py-24 text-accent mb-12">
+      <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
+        <h2 class="font-heading font-semibold uppercase">Checkout</h2>
+        <ul class="flex items-center gap-3 text-lg flex-wrap">
+          <li><a href="/">Home</a></li>
+          <li><i class="fa-solid fa-angle-right"></i></li>
+          <li><a href="/Cart">Cart</a></li>
+          <li><i class="fa-solid fa-angle-right"></i></li>
+          <li><span class="text-primary">Checkout</span></li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- footer section -->
-  <section class="bg-black text-white py-12 md:py-16 xl:py-20">
-    <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-6">
-        <div class="space-y-4 sm:col-span-2 lg:col-span-1"><a aria-current="page" class="block active" href="/"
-            data-discover="true"><img alt="logo" class="logo" src="./images/logo-light.svg"></a>
-          <p>Your trusted source for high-performance sports gear. Built for athletes. Designed for results.</p>
-          <ul>
-            <li class="flex items-center gap-2">
-              <i class="fa-solid fa-phone"></i><a href="/" data-discover="true">+1 (800) 123-SPORT</a>
-            </li>
-            <li class="flex items-center gap-2">
-              <i class="fa-solid fa-envelope"></i><a href="/" data-discover="true">support@SportRush.com</a>
-            </li>
-          </ul>
-          <ul class="flex items-center gap-2 text-xl">
-            <li><a href="/" data-discover="true">
-                <i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="/" data-discover="true"><i class="fa-brands fa-square-facebook"></i></a></li>
-            <li><a href="/" data-discover="true"><i class="fa-brands fa-linkedin"></i></a></li>
-          </ul>
-        </div>
-        <div class="space-y-4">
-          <p class="font-heading text-xl font-semibold">Quick Links</p>
-          <ul class="grid grid-cols-2 gap-2">
-            <li><a href="/" data-discover="true">About Us</a></li>
-            <li><a href="/" data-discover="true">Contact</a></li>
-            <li><a href="/" data-discover="true">FAQs</a></li>
-            <li><a href="/" data-discover="true">Shipping &amp; Returns</a></li>
-            <li><a href="/" data-discover="true">Payment Methods</a></li>
-            <li><a href="/" data-discover="true">Terms &amp; Conditions</a></li>
-            <li><a href="/" data-discover="true">Privacy Policy</a></li>
-            <li><a href="/" data-discover="true">Cookie Policy</a></li>
-          </ul>
-        </div>
-        <div class="space-y-4">
-          <p class="font-heading text-xl font-semibold">Quick Links</p>
-          <p>Get exclusive discounts, training tips, and new product launches straight to your inbox.</p>
-          <div class="flex">
+    <!-- checkout section -->
+    <!-- checkout section -->
+    <section class="mb-12 md:mb-16 xl:mb-20">
+      <div
+        class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10"
+      >
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="w-full md:w-2/3 space-y-4">
+            <form class="space-y-6">
+              <p class="font-heading font-semibold text-lg uppercase">
+                Billing Address
+              </p>
+              <div class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <label
+                      for="firstName"
+                      class="text-sm font-medium text-gray-700"
+                      >First Name</label
+                    >
+                    <div class="relative">
+                      <input
+                        id="firstName"
+                        placeholder="First name"
+                        class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
+                        type="text"
+                        value=""
+                        name="firstName"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <label
+                      for="lastName"
+                      class="text-sm font-medium text-gray-700"
+                      >Last Name</label
+                    >
+                    <div class="relative">
+                      <input
+                        id="lastName"
+                        placeholder="Last name"
+                        class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
+                        type="text"
+                        value=""
+                        name="lastName"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <label for="email" class="text-sm font-medium text-gray-700"
+                      >Email</label
+                    >
+                    <div class="relative">
+                      <input
+                        id="email"
+                        placeholder="Email"
+                        class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
+                        type="email"
+                        value=""
+                        name="email"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <label for="phone" class="text-sm font-medium text-gray-700"
+                      >Phone Number</label
+                    >
+                    <div class="relative">
+                      <input
+                        id="phone"
+                        placeholder="Phone number"
+                        class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
+                        type="text"
+                        value=""
+                        name="phone"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                  <div class="flex flex-col gap-1">
+                    <label for="city" class="text-sm font-medium text-gray-700"
+                      >City</label
+                    >
+                    <div class="relative">
+                      <select
+                        id="city"
+                        name="city"
+                        class="w-full px-3 py-2 border rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10 border-gray-300"
+                      >
+                        <option value="" disabled="" hidden="">
+                          Select an option
+                        </option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Durgapur">Durgapur</option></select
+                      ><span
+                        class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400"
+                        ><i class="fa-solid fa-angle-down"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <label for="state" class="text-sm font-medium text-gray-700"
+                      >State</label
+                    >
+                    <div class="relative">
+                      <select
+                        id="state"
+                        name="state"
+                        class="w-full px-3 py-2 border rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10 border-gray-300"
+                      >
+                        <option value="" disabled="" hidden="">
+                          Select an option
+                        </option>
+                        <option value="WB">WB</option>
+                        <option value="Delhi">Delhi</option></select
+                      ><span
+                        class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400"
+                        ><i class="fa-solid fa-angle-down"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <label
+                      for="zipcode"
+                      class="text-sm font-medium text-gray-700"
+                      >Zip code</label
+                    >
+                    <div class="relative">
+                      <input
+                        id="zipcode"
+                        placeholder="Zip code"
+                        class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
+                        type="text"
+                        value=""
+                        name="zipcode"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex flex-col gap-1">
+                    <label
+                      for="address"
+                      class="text-sm font-medium text-gray-700"
+                      >Address</label
+                    >
+                    <div class="relative">
+                      <input
+                        id="address"
+                        placeholder="Address"
+                        class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
+                        type="text"
+                        value=""
+                        name="address"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <input
+                      id="termsAccepted"
+                      class="h-4 w-4 rounded border-gray-300 text-blue-600"
+                      type="checkbox"
+                      name="termsAccepted"
+                    /><label for="termsAccepted" class="text-sm text-gray-700"
+                      >I have read and agree to the Term and Conditions.</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <p class="font-heading font-semibold text-lg uppercase">
+                Shipping Method
+              </p>
+              <div class="flex flex-col sm:flex-row gap-2">
+                <div
+                  class="sm:w-1/2 border border-border p-3 rounded-sm flex justify-between bg-surface2"
+                >
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <input
+                        id="shipping-FreeShipping"
+                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 undefined border-gray-300"
+                        type="radio"
+                        value="FreeShipping"
+                        checked=""
+                        name="shipping"
+                      /><label
+                        for="shipping-FreeShipping"
+                        class="text-base text-gray-700"
+                        >Free Shipping</label
+                      >
+                    </div>
+                    <span class="text-sm ms-6 text-muted">7-20 Days</span>
+                  </div>
+                  <div class="text-lg font-medium">$0</div>
+                </div>
+                <div
+                  class="sm:w-1/2 border border-border p-3 rounded-sm flex justify-between bg-white"
+                >
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <input
+                        id="shipping-ExpressShipping"
+                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 undefined border-gray-300"
+                        type="radio"
+                        value="ExpressShipping"
+                        name="shipping"
+                      /><label
+                        for="shipping-ExpressShipping"
+                        class="text-base text-gray-700"
+                        >Express Shipping</label
+                      >
+                    </div>
+                    <span class="text-sm ms-6 text-muted">1-3 Days</span>
+                  </div>
+                  <div class="text-lg font-medium">$9</div>
+                </div>
+              </div>
+              <p class="font-heading font-semibold text-lg uppercase">
+                Payment Method
+              </p>
+              <div class="flex flex-col">
+                <div
+                  class="w-full border border-border p-3 rounded-sm flex justify-between bg-surface2"
+                >
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <input
+                        id="payment-Card"
+                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 undefined border-gray-300"
+                        type="radio"
+                        value="Card"
+                        checked=""
+                        name="payment"
+                      /><label
+                        for="payment-Card"
+                        class="text-base text-gray-700"
+                        >Credit Card</label
+                      >
+                    </div>
+                  </div>
+                  <div class="text-2xl font-medium">
+                    <i class="fa-solid fa-credit-card"></i>
+                  </div>
+                </div>
+                <div class="p-4 space-y-2 border border-border rounded-sm">
+                  <div class="flex flex-col gap-1">
+                    <div class="relative">
+                      <input
+                        id="CardholderName"
+                        placeholder="Cardholder Name"
+                        class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
+                        type="text"
+                        name="CardholderName"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <div class="relative">
+                      <input
+                        id="CardNumber"
+                        placeholder="0000 0000 0000 0000"
+                        class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10 border-gray-300"
+                        type="text"
+                        name="CardNumber"
+                      /><span
+                        class="absolute inset-y-0 right-3 flex items-center text-gray-400"
+                        ><i class="fa-solid fa-credit-card"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="flex flex-col gap-1">
+                      <div class="relative">
+                        <input
+                          id="date"
+                          placeholder="Expiration Date (mm/yy)"
+                          class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
+                          type="date"
+                          name="date"
+                        />
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <div class="relative">
+                        <input
+                          id="CVV"
+                          placeholder="CVV"
+                          class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10 border-gray-300"
+                          type="text"
+                          name="CVV"
+                        /><span
+                          class="absolute inset-y-0 right-3 flex items-center text-gray-400"
+                          ><i class="fa-solid fa-credit-card"></i
+                        ></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="w-full border border-border p-3 rounded-sm flex justify-between mt-2 bg-white"
+                >
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <input
+                        id="payment-Cash"
+                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 undefined border-gray-300"
+                        type="radio"
+                        value="Cash"
+                        name="payment"
+                      /><label
+                        for="payment-Cash"
+                        class="text-base text-gray-700"
+                        >Cash on Delivery</label
+                      >
+                    </div>
+                  </div>
+                  <div class="text-2xl font-medium">
+                    <i class="fa-regular fa-money-bill-1"></i>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="w-full md:w-1/3 space-y-4">
             <div
-              class="w-full flex items-center gap-2 px-2 py-3 bg-white text-accent border border-gray-300 rounded-l-sm focus-visible:outline-none">
-              <i class="fa-regular fa-envelope text-muted"></i><input placeholder="Enter your email"
-                class="w-full focus-visible:outline-0 " type="email" value="">
-            </div><button
-              class="bg-white text-accent px-4 py-2 rounded-r-sm hover:bg-primary-dark transition">Subscribe</button>
+              id="orderSummary"
+              class="bg-surface p-6 space-y-6 text-accent"
+            ></div>
           </div>
         </div>
       </div>
-      <hr class="border-t border-gray-500">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p class="text-muted text-sm order-1 sm:order-0">© 2025 SportRush rights reserved.</p>
-        <div class="flex items-center gap-1">
-          <img alt="card" src="./images/amex.svg">
-          <img alt="card" src="./images/discover.svg">
-          <img alt="card" src="./images/mastercard.svg">
-          <img alt="card" src="./images/visa.svg">
-          <img alt="card" src="./images/shop.svg">
+    </section>
+
+    <!-- terms section -->
+    <section class="bg-surface py-12">
+      <div class="container max-w-[1340px] mx-auto px-3">
+        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img alt="Secure Shopping" src="./images/secure.svg" />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                Secure Shopping
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              Your data and payments are always protected with advanced
+              encryption.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img
+                alt="Fast & Reliable Shipping"
+                src="./images/shipping-van.svg"
+              />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                Fast & Reliable Shipping
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              Trackable delivery with same-day dispatch on most orders.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img alt="24/7 Customer Support" src="./images/support.svg" />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                24/7 Customer Support
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              We’re here whenever you need help or advice.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img
+                alt="Easy Returns &amp; Exchanges"
+                src="./images/exchange.svg"
+              />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                Easy Returns &amp; Exchanges
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              Hassle-free process within 30 days of purchase.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script type="module" src="./src/main.js"></script>
+    <!-- footer section -->
+    <section class="bg-black text-white py-12 md:py-16 xl:py-20">
+      <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-6">
+          <div class="space-y-4 sm:col-span-2 lg:col-span-1">
+            <a
+              aria-current="page"
+              class="block active"
+              href="/"
+              data-discover="true"
+              ><img alt="logo" class="logo" src="./images/logo-light.svg"
+            /></a>
+            <p>
+              Your trusted source for high-performance sports gear. Built for
+              athletes. Designed for results.
+            </p>
+            <ul>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-phone"></i
+                ><a href="/" data-discover="true">+1 (800) 123-SPORT</a>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-envelope"></i
+                ><a href="/" data-discover="true">support@SportRush.com</a>
+              </li>
+            </ul>
+            <ul class="flex items-center gap-2 text-xl">
+              <li>
+                <a href="/" data-discover="true">
+                  <i class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="/" data-discover="true"
+                  ><i class="fa-brands fa-square-facebook"></i
+                ></a>
+              </li>
+              <li>
+                <a href="/" data-discover="true"
+                  ><i class="fa-brands fa-linkedin"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <p class="font-heading text-xl font-semibold">Quick Links</p>
+            <ul class="grid grid-cols-2 gap-2">
+              <li><a href="/" data-discover="true">About Us</a></li>
+              <li><a href="/" data-discover="true">Contact</a></li>
+              <li><a href="/" data-discover="true">FAQs</a></li>
+              <li>
+                <a href="/" data-discover="true">Shipping &amp; Returns</a>
+              </li>
+              <li><a href="/" data-discover="true">Payment Methods</a></li>
+              <li>
+                <a href="/" data-discover="true">Terms &amp; Conditions</a>
+              </li>
+              <li><a href="/" data-discover="true">Privacy Policy</a></li>
+              <li><a href="/" data-discover="true">Cookie Policy</a></li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <p class="font-heading text-xl font-semibold">Quick Links</p>
+            <p>
+              Get exclusive discounts, training tips, and new product launches
+              straight to your inbox.
+            </p>
+            <div class="flex">
+              <div
+                class="w-full flex items-center gap-2 px-2 py-3 bg-white text-accent border border-gray-300 rounded-l-sm focus-visible:outline-none"
+              >
+                <i class="fa-regular fa-envelope text-muted"></i
+                ><input
+                  placeholder="Enter your email"
+                  class="w-full focus-visible:outline-0"
+                  type="email"
+                  value=""
+                />
+              </div>
+              <button
+                class="bg-white text-accent px-4 py-2 rounded-r-sm hover:bg-primary-dark transition"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr class="border-t border-gray-500" />
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-2"
+        >
+          <p class="text-muted text-sm order-1 sm:order-0">
+            © 2025 SportRush rights reserved.
+          </p>
+          <div class="flex items-center gap-1">
+            <img alt="card" src="./images/amex.svg" />
+            <img alt="card" src="./images/discover.svg" />
+            <img alt="card" src="./images/mastercard.svg" />
+            <img alt="card" src="./images/visa.svg" />
+            <img alt="card" src="./images/shop.svg" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/checkout.js"></script>
+  </body>
 </html>

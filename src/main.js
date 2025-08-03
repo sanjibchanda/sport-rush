@@ -6,7 +6,31 @@ import "slick-carousel/slick/slick-theme.css";
 import $ from "jquery";
 import "slick-carousel";
 import { toggleMenu } from "./utils.js";
-import { renderProducts } from "./products.js";
+import { renderProducts, updateHeaderCounts } from './products.js';
+import { applyFilters, setupFilterUI } from './filters.js';
+
+
+// Render products
+let allProducts = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('./data/products.json')
+    .then(res => res.json())
+    .then(products => {
+      allProducts = products;
+      localStorage.setItem('allProducts', JSON.stringify(allProducts));
+      renderProducts(allProducts);
+      setupFilterUI(allProducts, onFilterChange);
+      updateHeaderCounts();
+    });
+});
+
+function onFilterChange(filters) {
+  const filteredProducts = applyFilters(allProducts, filters);
+  renderProducts(filteredProducts);
+}
+
+
 
 // Event listeners for menu toggle
 document
@@ -16,9 +40,10 @@ document
   .querySelectorAll('[aria-label="Close Menu"]')
   .forEach((button) => button.addEventListener("click", toggleMenu));
 
-// Render
-renderProducts();
 
+
+
+// accordian
 document.addEventListener("DOMContentLoaded", function () {
   const headers = document.querySelectorAll(".accordion-header");
 

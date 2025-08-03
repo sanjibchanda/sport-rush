@@ -1,357 +1,588 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sport-rush</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sport-rush</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="./src/style.css">
-</head>
-
-<body>
-  <!-- top-bar -->
-  <section class="bg-primary text-white text-center">
-    <div class="container max-w-[1320px] mx-auto px-3 py-3">
-      <p class="font-heading font-medium text-sm lg:text-base">Today Only: Up to <span
-          class="bg-black inline-block rounded-sm px-1 lg:px-2">40%</span> Off
-        Best-Selling
-        Gear!</p>
-    </div>
-  </section>
-
-  <!-- header -->
-  <header class="sticky top-0 left-0 w-full z-50 bg-white shadow">
-    <div class="container max-w-[1320px] mx-auto px-3">
-      <div class="flex items-center justify-between py-4">
-        <div class="w-full lg:w-auto flex items-center justify-between">
-          <img src="./images/logo-dark.svg" alt="logo" class="max-w-[160px] lg:max-w-[220px]" />
-          <!-- Hamburger -->
-          <ul class="flex items-center gap-3 navMenu">
-            <li class="lg:hidden"><a href="#"><img src="./images/search.svg" alt="search"></a></li>
-            <li class="lg:hidden"><a href="#"><img src="./images/shopping-cart-outlined.svg" alt="shopping-cart"></a>
-            </li>
-            <li>
-              <button class="text-xl lg:hidden" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars"></i>
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Nav Menu -->
-        <div id="mobileMenu"
-          class="fixed top-0 right-0 h-full w-[320px] bg-white shadow-lg p-4 z-50 transform translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:p-0 lg:w-auto lg:shadow-none lg:bg-transparent transition-transform duration-300 ease-in-out">
-          <!-- Close Button -->
-          <div class="flex justify-end mb-4 lg:hidden">
-            <button class="text-2xl" onclick="toggleMenu()" aria-label="Close Menu">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
-
-          <!-- Menu Links -->
-          <ul class="navMenu flex flex-col lg:flex-row lg:items-center gap-4">
-            <li><a href="#" class="block p-2 hover:text-blue-600">Shop</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Shop by Sport</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Deals & Offers</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Accessories</a></li>
-            <li><a href="#" class="block p-2 hover:text-blue-600">Contact Us</a></li>
-            <li class="lg:hidden"><a href="#" class="block p-2 hover:text-blue-600">Account</a></li>
-            <li class="lg:hidden"><a href="#" class="block p-2 hover:text-blue-600">Wishlist</a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/search.svg" alt="search"></a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/user.svg" alt="user"></a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/wishlist.svg" alt="wishlist"></a></li>
-            <li class="hidden lg:block"><a href="#"><img src="./images/shopping-cart-outlined.svg"
-                  alt="shopping-cart"></a></li>
-          </ul>
-        </div>
+  <body>
+    <!-- top-bar -->
+    <section class="bg-primary text-white text-center">
+      <div class="container max-w-[1320px] mx-auto px-3 py-3">
+        <p class="font-heading font-medium text-sm lg:text-base">
+          Today Only: Up to
+          <span class="bg-black inline-block rounded-sm px-1 lg:px-2">40%</span>
+          Off Best-Selling Gear!
+        </p>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- banner -->
-  <section class="bg-shop py-24 text-accent mb-12">
-    <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
-      <h2 class="font-heading font-semibold uppercase">All Products</h2>
-      <ul class="flex items-center gap-3 text-lg flex-wrap">
-        <li><a href="/">Home</a></li>
-        <li><i class="fa-solid fa-angle-right"></i></li>
-        <li><span class="text-primary">Products</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="mb-12 md:mb-16 xl:mb-20">
-    <div class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10">
-      <div class="flex gap-6">
-        <div class="hidden lg:block lg:relative lg:overflow-hidden lg:h-auto lg:w-1/4 lg:p-0 lg:shadow-none">
-          <div class="space-y-4">
-            <div
-              class="flex justify-between items-center font-heading text-base font-semibold text-accent py-4 border-b border-border">
-              <div>Filter Option:</div>
-              <div class="text-sm text-muted"><button class="cursor-pointer">Clear all</button></div>
-            </div>
-            <div class="space-y-4 border-b border-border pb-4">
-              <div class="flex flex-col gap-1 ">
-                <div class="relative"><input id="search" placeholder="Search Product"
-                    class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10 border-gray-300"
-                    type="text" value="" name="search"><span
-                    class="absolute inset-y-0 right-3 flex items-center text-gray-400">
-                    <img src="./images/search-gray.svg" alt="search"></span></div>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <div class="bg-surface flex items-center gap-1 px-4 py-1.5 text-xs rounded-full">
-                  <span>phones</span><button type="button" class="text-muted hover:text-accent transition"><i
-                      class="fa-solid fa-xmark"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="space-y-4 border-b border-border pb-4">
-              <div class="font-heading text-base font-semibold text-accent">Category</div>
-              <div class="space-y-3">
-                <label class="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-                  <input class="size-4 bg-white border-2 border-gray-300 rounded-md" type="checkbox">
-                  <span class="text-sm text-accent">Running <span>(250)</span></span>
-                </label>
-                <label class="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-                  <input class="size-4 bg-white border-2 border-gray-300 rounded-md" type="checkbox">
-                  <span class="text-sm text-accent">Casual <span>(250)</span></span>
-                </label>
-                <label class="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-                  <input class="size-4 bg-white border-2 border-gray-300 rounded-md" type="checkbox">
-                  <span class="text-sm text-accent">Soccer <span>(250)</span></span>
-                </label>
-                <label class="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-                  <input class="size-4 bg-white border-2 border-gray-300 rounded-md" type="checkbox">
-                  <span class="text-sm text-accent">Men <span>(250)</span></span>
-                </label>
-                <label class="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-                  <input class="size-4 bg-white border-2 border-gray-300 rounded-md" type="checkbox">
-                  <span class="text-sm text-accent">Women <span>(250)</span></span>
-                </label>
-              </div>
-            </div>
-            <div class="space-y-4 border-b border-border pb-4">
-              <div class="font-heading text-base font-semibold text-accent">Category</div>
-              <div class="space-y-3">
-                <label class="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-                  <input class="size-4 bg-white border-2 border-gray-300 rounded-md" type="checkbox">
-                  <span class="text-sm text-accent">Adidas <span>(250)</span></span>
-                </label>
-                <label class="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-                  <input class="size-4 bg-white border-2 border-gray-300 rounded-md" type="checkbox">
-                  <span class="text-sm text-accent">nike <span>(250)</span></span>
-                </label>
-                <label class="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-                  <input class="size-4 bg-white border-2 border-gray-300 rounded-md" type="checkbox">
-                  <span class="text-sm text-accent">Puma <span>(250)</span></span>
-                </label>
-                <label class="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-                  <input class="size-4 bg-white border-2 border-gray-300 rounded-md" type="checkbox">
-                  <span class="text-sm text-accent">Reebok <span>(250)</span></span>
-                </label>
-                <label class="w-full inline-flex items-center space-x-2 cursor-pointer select-none">
-                  <input class="size-4 bg-white border-2 border-gray-300 rounded-md" type="checkbox">
-                  <span class="text-sm text-accent">Mizuno <span>(250)</span></span>
-                </label>
-              </div>
-            </div>
-            <div class="space-y-4 border-b border-border pb-4">
-              <div class="font-heading text-base font-semibold text-accent">Size</div>
-              <div class="flex items-center gap-2">
-                <div class="relative border rounded-sm px-3 py-2 border-border">
-                  <input id="xs" class="opacity-0 absolute" type="radio" value="size" checked="" name="size">
-                  <label for="size" class="flex items-center gap-1 cursor-pointer">
-                    <span class="text-sm">XS</span>
-                  </label>
-                </div>
-                <div class="relative border rounded-sm px-3 py-2 border-border">
-                  <input id="xs" class="opacity-0 absolute" type="radio" value="size" checked="" name="size">
-                  <label for="size" class="flex items-center gap-1 cursor-pointer">
-                    <span class="text-sm">SM</span>
-                  </label>
-                </div>
-                <div class="relative border rounded-sm px-3 py-2 border-border">
-                  <input id="xs" class="opacity-0 absolute" type="radio" value="size" checked="" name="size">
-                  <label for="size" class="flex items-center gap-1 cursor-pointer">
-                    <span class="text-sm">MD</span>
-                  </label>
-                </div>
-                <div class="relative border rounded-sm px-3 py-2 border-border">
-                  <input id="xs" class="opacity-0 absolute" type="radio" value="size" checked="" name="size">
-                  <label for="size" class="flex items-center gap-1 cursor-pointer">
-                    <span class="text-sm">LG</span>
-                  </label>
-                </div>
-                <div class="relative border rounded-sm px-3 py-2 border-border">
-                  <input id="xs" class="opacity-0 absolute" type="radio" value="size" checked="" name="size">
-                  <label for="size" class="flex items-center gap-1 cursor-pointer">
-                    <span class="text-sm">XL</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="space-y-4 border-b border-border pb-4">
-              <div class="font-heading text-base font-semibold text-accent">Price</div>
-              <div class="space-y-2"><input min="0" max="300" step="10"
-                  class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" type="range" value="300">
-                <p class="text-sm text-accent font-medium">$0 - $300.00</p>
-              </div>
-            </div>
-            <div class="bg-neutral-100 py-8 px-4 space-y-6">
-              <p class="text-primary font-heading uppercase font-semibold">promo</p>
-              <h3 class="text-accent font-heading uppercase font-bold">Black friday Discount!</h3>
-              <p class="text-muted">Get 25% Off on Running Shoes</p><a
-                class="inline-flex items-center gap-1 text-sm lg:text-base text-accent font-heading font-semibold hover:text-primary"
-                href="/" data-discover="true">Shop Now <i class="fa-solid fa-angle-right"></i></a>
-              <img alt="promo" class="relative ml-auto -rotate-12" src="./images/promo.png">
-            </div>
+    <!-- header -->
+    <header class="sticky top-0 left-0 w-full z-50 bg-white shadow">
+      <div class="container max-w-[1320px] mx-auto px-3">
+        <div class="flex items-center justify-between py-4">
+          <div class="w-full lg:w-auto flex items-center justify-between">
+            <a href="/">
+              <img
+                src="./images/logo-dark.svg"
+                alt="logo"
+                class="max-w-[160px] lg:max-w-[220px]"
+              />
+            </a>
+            <!-- Hamburger -->
+            <ul class="flex items-center gap-3 navMenu">
+              <li class="lg:hidden">
+                <a href="#"><img src="./images/search.svg" alt="search" /></a>
+              </li>
+              <li class="lg:hidden">
+                <a href="#"
+                  ><img
+                    src="./images/shopping-cart-outlined.svg"
+                    alt="shopping-cart"
+                /></a>
+              </li>
+              <li>
+                <button class="text-xl lg:hidden" aria-label="Toggle Menu">
+                  <i class="fa-solid fa-bars"></i>
+                </button>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div class="w-full lg:w-3/4 space-y-4">
+
+          <!-- Nav Menu -->
           <div
-            class="flex flex-col sm:flex-row gap-3 justify-between md:items-center font-heading text-sm md:text-base font-semibold text-accent py-4 border-b border-border">
-            <div class="flex items-center gap-2">
-              <button class="flex items-center gap-2 lg:hidden"><svg stroke="currentColor" fill="currentColor"
-                  stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                  <g id="Filter">
-                    <path
-                      d="M14.037,20.937a1.015,1.015,0,0,1-.518-.145l-3.334-2a2.551,2.551,0,0,1-1.233-2.176V12.091a1.526,1.526,0,0,0-.284-.891L4.013,4.658a1.01,1.01,0,0,1,.822-1.6h14.33a1.009,1.009,0,0,1,.822,1.6h0L15.332,11.2a1.527,1.527,0,0,0-.285.891v7.834a1.013,1.013,0,0,1-1.01,1.012ZM4.835,4.063,9.482,10.62a2.515,2.515,0,0,1,.47,1.471v4.524a1.543,1.543,0,0,0,.747,1.318l3.334,2,.014-7.843a2.516,2.516,0,0,1,.471-1.471l4.654-6.542,0,0Z">
-                    </path>
-                  </g>
-                </svg></button>
-              <div>Showing 1 to 9 of 11 results</div>
+            id="mobileMenu"
+            class="fixed top-0 right-0 h-full w-[320px] bg-white shadow-lg p-4 z-50 transform translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:p-0 lg:w-auto lg:shadow-none lg:bg-transparent transition-transform duration-300 ease-in-out"
+          >
+            <!-- Close Button -->
+            <div class="flex justify-end mb-4 lg:hidden">
+              <button
+                class="text-2xl"
+                onclick="toggleMenu()"
+                aria-label="Close Menu"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
             </div>
-            <div>
-              <div class="flex items-center gap-2"><label for="country" class="block">Sort By:</label>
-                <div class="flex items-center"><select id="sort"
-                    class="w-full appearance-none focus-visible:outline-0 bg-white text-sm text-gray-900">
-                    <option value="Newest">Newest</option>
-                    <option value="BestSeller">BestSeller</option>
-                    <option value="Trending">Trending</option>
-                  </select><i class="fa-solid fa-angle-down"></i></div>
+
+            <!-- Menu Links -->
+            <ul class="navMenu flex flex-col lg:flex-row lg:items-center gap-4">
+              <li>
+                <a href="products.html" class="block p-2 hover:text-blue-600"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block p-2 hover:text-blue-600"
+                  >Deals & Offers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block p-2 hover:text-blue-600"
+                  >Accessories</a
+                >
+              </li>
+              <li class="lg:hidden">
+                <a href="#" class="block p-2 hover:text-blue-600">Account</a>
+              </li>
+              <li class="lg:hidden">
+                <a href="#" class="block p-2 hover:text-blue-600">Wishlist</a>
+              </li>
+              <li class="hidden lg:block">
+                <a href="#"><img src="./images/search.svg" alt="search" /></a>
+              </li>
+              <li class="hidden lg:block">
+                <a href="#"><img src="./images/user.svg" alt="user" /></a>
+              </li>
+              <li class="hidden lg:block relative">
+                <a href="wishlist.html"
+                  ><img src="./images/wishlist.svg" alt="wishlist" />
+                  <span
+                    id="wishlistCount"
+                    class="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                    >1</span
+                  >
+                </a>
+              </li>
+              <li class="hidden lg:block relative">
+                <a href="cart.html"
+                  ><img
+                    src="./images/shopping-cart-outlined.svg"
+                    alt="shopping-cart"
+                  />
+                  <span
+                    id="cartCount"
+                    class="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                    >1</span
+                  ></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- banner -->
+    <section class="bg-shop py-24 text-accent mb-12">
+      <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
+        <h2 class="font-heading font-semibold uppercase">All Products</h2>
+        <ul class="flex items-center gap-3 text-lg flex-wrap">
+          <li><a href="/">Home</a></li>
+          <li><i class="fa-solid fa-angle-right"></i></li>
+          <li><span class="text-primary">Products</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-12 md:mb-16 xl:mb-20">
+      <div
+        class="container max-w-[1340px] mx-auto px-3 space-y-6 md:space-y-8 xl:space-y-10"
+      >
+        <div class="flex gap-6">
+          <div
+            class="hidden lg:block lg:relative lg:overflow-hidden lg:h-auto lg:w-1/4 lg:p-0 lg:shadow-none"
+          >
+            <div class="space-y-4">
+              <div
+                class="flex justify-between items-center font-heading text-base font-semibold text-accent py-4 border-b border-border"
+              >
+                <div>Filter Option:</div>
+                <div class="text-sm text-muted">
+                  <button id="clearAllFilters" class="hidden cursor-pointer">
+                    Clear All Filters
+                  </button>
+                </div>
+              </div>
+              <div class="space-y-4 border-b border-border pb-4">
+                <div class="flex flex-col gap-1">
+                  <div class="relative">
+                    <input
+                      id="searchInput"
+                      placeholder="Search products..."
+                      class="w-full px-3 py-2 border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10 border-gray-300"
+                      type="text"
+                      value=""
+                      name="search"
+                    /><span
+                      class="absolute inset-y-0 right-3 flex items-center text-gray-400"
+                    >
+                      <img src="./images/search-gray.svg" alt="search"
+                    /></span>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2" id="activeFilters">
+                  <!-- Active Filter Badges will appear here -->
+                </div>
+              </div>
+
+              <div class="space-y-4 border-b border-border pb-4">
+                <div class="font-heading text-base font-semibold text-accent">
+                  Category
+                </div>
+                <div id="categoryFilters" class="space-y-3">
+                  <!-- Checkboxes will render here -->
+                </div>
+              </div>
+              <!-- <div class="space-y-4 border-b border-border pb-4">
+                <div class="font-heading text-base font-semibold text-accent">
+                  Size
+                </div>
+                <div class="flex items-center gap-2">
+                  <div
+                    class="relative border rounded-sm px-3 py-2 border-border"
+                  >
+                    <input
+                      id="xs"
+                      class="opacity-0 absolute"
+                      type="radio"
+                      value="size"
+                      checked=""
+                      name="size"
+                    />
+                    <label
+                      for="size"
+                      class="flex items-center gap-1 cursor-pointer"
+                    >
+                      <span class="text-sm">XS</span>
+                    </label>
+                  </div>
+                  <div
+                    class="relative border rounded-sm px-3 py-2 border-border"
+                  >
+                    <input
+                      id="xs"
+                      class="opacity-0 absolute"
+                      type="radio"
+                      value="size"
+                      checked=""
+                      name="size"
+                    />
+                    <label
+                      for="size"
+                      class="flex items-center gap-1 cursor-pointer"
+                    >
+                      <span class="text-sm">SM</span>
+                    </label>
+                  </div>
+                  <div
+                    class="relative border rounded-sm px-3 py-2 border-border"
+                  >
+                    <input
+                      id="xs"
+                      class="opacity-0 absolute"
+                      type="radio"
+                      value="size"
+                      checked=""
+                      name="size"
+                    />
+                    <label
+                      for="size"
+                      class="flex items-center gap-1 cursor-pointer"
+                    >
+                      <span class="text-sm">MD</span>
+                    </label>
+                  </div>
+                  <div
+                    class="relative border rounded-sm px-3 py-2 border-border"
+                  >
+                    <input
+                      id="xs"
+                      class="opacity-0 absolute"
+                      type="radio"
+                      value="size"
+                      checked=""
+                      name="size"
+                    />
+                    <label
+                      for="size"
+                      class="flex items-center gap-1 cursor-pointer"
+                    >
+                      <span class="text-sm">LG</span>
+                    </label>
+                  </div>
+                  <div
+                    class="relative border rounded-sm px-3 py-2 border-border"
+                  >
+                    <input
+                      id="xs"
+                      class="opacity-0 absolute"
+                      type="radio"
+                      value="size"
+                      checked=""
+                      name="size"
+                    />
+                    <label
+                      for="size"
+                      class="flex items-center gap-1 cursor-pointer"
+                    >
+                      <span class="text-sm">XL</span>
+                    </label>
+                  </div>
+                </div>
+              </div> -->
+              <div class="space-y-4 border-b border-border pb-4">
+                <div class="font-heading text-base font-semibold text-accent">
+                  Price
+                </div>
+                <div class="space-y-2">
+                  <input
+                    id="priceRange"
+                    type="range"
+                    min="0"
+                    max="300"
+                    step="10"
+                    value="300"
+                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  />
+                  <p class="text-sm text-accent font-medium">
+                    Up to $<span id="priceRangeValue">300</span>
+                  </p>
+                </div>
+              </div>
+              <div class="bg-neutral-100 py-8 px-4 space-y-6">
+                <p class="text-primary font-heading uppercase font-semibold">
+                  promo
+                </p>
+                <h3 class="text-accent font-heading uppercase font-bold">
+                  Black friday Discount!
+                </h3>
+                <p class="text-muted">Get 25% Off on Running Shoes</p>
+                <a
+                  class="inline-flex items-center gap-1 text-sm lg:text-base text-accent font-heading font-semibold hover:text-primary"
+                  href="/"
+                  data-discover="true"
+                  >Shop Now <i class="fa-solid fa-angle-right"></i
+                ></a>
+                <img
+                  alt="promo"
+                  class="relative ml-auto -rotate-12"
+                  src="./images/promo.png"
+                />
               </div>
             </div>
           </div>
-          <div id="products" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-3 md:gap-6">
-          </div>
-          <div class="flex items-center justify-center gap-2 font-medium mt-4"><button
-              class="flex items-center justify-center size-10 rounded-sm bg-gray-100 text-muted cursor-not-allowed"
-              disabled=""><i class="fa-solid fa-angle-left"></i></button><button
-              class="flex items-center justify-center size-10 rounded-sm bg-primary text-white">1</button><button
-              class="flex items-center justify-center size-10 rounded-sm bg-white hover:bg-primary hover:text-white">2</button><button
-              class="flex items-center justify-center size-10 rounded-sm bg-white hover:bg-primary hover:text-white">
-              <i class="fa-solid fa-angle-right"></i></button></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- terms section -->
-  <section class="bg-surface py-12 ">
-    <div class="container max-w-[1340px] mx-auto px-3 ">
-      <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
-        <div class="space-y-3">
-          <div class="flex gap-3"><img alt="Secure Shopping" src="./images/secure.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Secure Shopping</p>
-          </div>
-          <p class="text-muted text-sm">Your data and payments are always protected with advanced encryption.</p>
-        </div>
-        <div class="space-y-3">
-          <div class="flex gap-3">
-            <img alt="Fast & Reliable Shipping" src="./images/shipping-van.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Fast & Reliable Shipping</p>
-          </div>
-          <p class="text-muted text-sm">Trackable delivery with same-day dispatch on most orders.</p>
-        </div>
-        <div class="space-y-3">
-          <div class="flex gap-3"><img alt="24/7 Customer Support" src="./images/support.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">24/7 Customer Support</p>
-          </div>
-          <p class="text-muted text-sm">We’re here whenever you need help or advice.</p>
-        </div>
-        <div class="space-y-3">
-          <div class="flex gap-3"><img alt="Easy Returns &amp; Exchanges" src="./images/exchange.svg">
-            <p class="font-heading font-semibold text-base lg:text-lg text-accent">Easy Returns &amp; Exchanges</p>
-          </div>
-          <p class="text-muted text-sm">Hassle-free process within 30 days of purchase.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- footer section -->
-  <section class="bg-black text-white py-12 md:py-16 xl:py-20">
-    <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-6">
-        <div class="space-y-4 sm:col-span-2 lg:col-span-1"><a aria-current="page" class="block active" href="/"
-            data-discover="true"><img alt="logo" class="logo" src="./images/logo-light.svg"></a>
-          <p>Your trusted source for high-performance sports gear. Built for athletes. Designed for results.</p>
-          <ul>
-            <li class="flex items-center gap-2">
-              <i class="fa-solid fa-phone"></i><a href="/" data-discover="true">+1 (800) 123-SPORT</a>
-            </li>
-            <li class="flex items-center gap-2">
-              <i class="fa-solid fa-envelope"></i><a href="/" data-discover="true">support@SportRush.com</a>
-            </li>
-          </ul>
-          <ul class="flex items-center gap-2 text-xl">
-            <li><a href="/" data-discover="true">
-                <i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="/" data-discover="true"><i class="fa-brands fa-square-facebook"></i></a></li>
-            <li><a href="/" data-discover="true"><i class="fa-brands fa-linkedin"></i></a></li>
-          </ul>
-        </div>
-        <div class="space-y-4">
-          <p class="font-heading text-xl font-semibold">Quick Links</p>
-          <ul class="grid grid-cols-2 gap-2">
-            <li><a href="/" data-discover="true">About Us</a></li>
-            <li><a href="/" data-discover="true">Contact</a></li>
-            <li><a href="/" data-discover="true">FAQs</a></li>
-            <li><a href="/" data-discover="true">Shipping &amp; Returns</a></li>
-            <li><a href="/" data-discover="true">Payment Methods</a></li>
-            <li><a href="/" data-discover="true">Terms &amp; Conditions</a></li>
-            <li><a href="/" data-discover="true">Privacy Policy</a></li>
-            <li><a href="/" data-discover="true">Cookie Policy</a></li>
-          </ul>
-        </div>
-        <div class="space-y-4">
-          <p class="font-heading text-xl font-semibold">Quick Links</p>
-          <p>Get exclusive discounts, training tips, and new product launches straight to your inbox.</p>
-          <div class="flex">
+          <div class="w-full lg:w-3/4 space-y-4">
             <div
-              class="w-full flex items-center gap-2 px-2 py-3 bg-white text-accent border border-gray-300 rounded-l-sm focus-visible:outline-none">
-              <i class="fa-regular fa-envelope text-muted"></i><input placeholder="Enter your email"
-                class="w-full focus-visible:outline-0 " type="email" value="">
-            </div><button
-              class="bg-white text-accent px-4 py-2 rounded-r-sm hover:bg-primary-dark transition">Subscribe</button>
+              class="flex flex-col sm:flex-row gap-3 justify-between md:items-center font-heading text-sm md:text-base font-semibold text-accent py-4 border-b border-border"
+            >
+              <div class="flex items-center gap-2">
+                <button class="flex items-center gap-2 lg:hidden">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 24 24"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="Filter">
+                      <path
+                        d="M14.037,20.937a1.015,1.015,0,0,1-.518-.145l-3.334-2a2.551,2.551,0,0,1-1.233-2.176V12.091a1.526,1.526,0,0,0-.284-.891L4.013,4.658a1.01,1.01,0,0,1,.822-1.6h14.33a1.009,1.009,0,0,1,.822,1.6h0L15.332,11.2a1.527,1.527,0,0,0-.285.891v7.834a1.013,1.013,0,0,1-1.01,1.012ZM4.835,4.063,9.482,10.62a2.515,2.515,0,0,1,.47,1.471v4.524a1.543,1.543,0,0,0,.747,1.318l3.334,2,.014-7.843a2.516,2.516,0,0,1,.471-1.471l4.654-6.542,0,0Z"
+                      ></path>
+                    </g>
+                  </svg>
+                </button>
+                <div>Showing 1 to 9 of 11 results</div>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <label for="country" class="block">Sort By:</label>
+                  <div class="flex items-center">
+                    <select
+                      id="sortFilter"
+                      class="w-full appearance-none focus-visible:outline-0 bg-white text-sm text-gray-900"
+                    >
+                      <option value="">Default</option>
+                      <option value="low-to-high">Low to High</option>
+                      <option value="high-to-low">High to Low</option></select
+                    ><i class="fa-solid fa-angle-down"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              id="productContainer"
+              class="grid sm:grid-cols-2 xl:grid-cols-3 gap-3 md:gap-6"
+            ></div>
+            <div
+              class="flex items-center justify-center gap-2 font-medium mt-4"
+            >
+              <button
+                class="flex items-center justify-center size-10 rounded-sm bg-gray-100 text-muted cursor-not-allowed"
+                disabled=""
+              >
+                <i class="fa-solid fa-angle-left"></i></button
+              ><button
+                class="flex items-center justify-center size-10 rounded-sm bg-primary text-white"
+              >
+                1</button
+              ><button
+                class="flex items-center justify-center size-10 rounded-sm bg-white hover:bg-primary hover:text-white"
+              >
+                2</button
+              ><button
+                class="flex items-center justify-center size-10 rounded-sm bg-white hover:bg-primary hover:text-white"
+              >
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <hr class="border-t border-gray-500">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p class="text-muted text-sm order-1 sm:order-0">© 2025 SportRush rights reserved.</p>
-        <div class="flex items-center gap-1">
-          <img alt="card" src="./images/amex.svg">
-          <img alt="card" src="./images/discover.svg">
-          <img alt="card" src="./images/mastercard.svg">
-          <img alt="card" src="./images/visa.svg">
-          <img alt="card" src="./images/shop.svg">
+    </section>
+
+    <!-- terms section -->
+    <section class="bg-surface py-12">
+      <div class="container max-w-[1340px] mx-auto px-3">
+        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img alt="Secure Shopping" src="./images/secure.svg" />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                Secure Shopping
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              Your data and payments are always protected with advanced
+              encryption.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img
+                alt="Fast & Reliable Shipping"
+                src="./images/shipping-van.svg"
+              />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                Fast & Reliable Shipping
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              Trackable delivery with same-day dispatch on most orders.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img alt="24/7 Customer Support" src="./images/support.svg" />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                24/7 Customer Support
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              We’re here whenever you need help or advice.
+            </p>
+          </div>
+          <div class="space-y-3">
+            <div class="flex gap-3">
+              <img
+                alt="Easy Returns &amp; Exchanges"
+                src="./images/exchange.svg"
+              />
+              <p
+                class="font-heading font-semibold text-base lg:text-lg text-accent"
+              >
+                Easy Returns &amp; Exchanges
+              </p>
+            </div>
+            <p class="text-muted text-sm">
+              Hassle-free process within 30 days of purchase.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script type="module" src="./src/main.js"></script>
+    <!-- footer section -->
+    <section class="bg-black text-white py-12 md:py-16 xl:py-20">
+      <div class="container max-w-[1340px] mx-auto px-3 space-y-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-6">
+          <div class="space-y-4 sm:col-span-2 lg:col-span-1">
+            <a
+              aria-current="page"
+              class="block active"
+              href="/"
+              data-discover="true"
+              ><img alt="logo" class="logo" src="./images/logo-light.svg"
+            /></a>
+            <p>
+              Your trusted source for high-performance sports gear. Built for
+              athletes. Designed for results.
+            </p>
+            <ul>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-phone"></i
+                ><a href="/" data-discover="true">+1 (800) 123-SPORT</a>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-envelope"></i
+                ><a href="/" data-discover="true">support@SportRush.com</a>
+              </li>
+            </ul>
+            <ul class="flex items-center gap-2 text-xl">
+              <li>
+                <a href="/" data-discover="true">
+                  <i class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="/" data-discover="true"
+                  ><i class="fa-brands fa-square-facebook"></i
+                ></a>
+              </li>
+              <li>
+                <a href="/" data-discover="true"
+                  ><i class="fa-brands fa-linkedin"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <p class="font-heading text-xl font-semibold">Quick Links</p>
+            <ul class="grid grid-cols-2 gap-2">
+              <li><a href="/" data-discover="true">About Us</a></li>
+              <li><a href="/" data-discover="true">Contact</a></li>
+              <li><a href="/" data-discover="true">FAQs</a></li>
+              <li>
+                <a href="/" data-discover="true">Shipping &amp; Returns</a>
+              </li>
+              <li><a href="/" data-discover="true">Payment Methods</a></li>
+              <li>
+                <a href="/" data-discover="true">Terms &amp; Conditions</a>
+              </li>
+              <li><a href="/" data-discover="true">Privacy Policy</a></li>
+              <li><a href="/" data-discover="true">Cookie Policy</a></li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <p class="font-heading text-xl font-semibold">Quick Links</p>
+            <p>
+              Get exclusive discounts, training tips, and new product launches
+              straight to your inbox.
+            </p>
+            <div class="flex">
+              <div
+                class="w-full flex items-center gap-2 px-2 py-3 bg-white text-accent border border-gray-300 rounded-l-sm focus-visible:outline-none"
+              >
+                <i class="fa-regular fa-envelope text-muted"></i
+                ><input
+                  placeholder="Enter your email"
+                  class="w-full focus-visible:outline-0"
+                  type="email"
+                  value=""
+                />
+              </div>
+              <button
+                class="bg-white text-accent px-4 py-2 rounded-r-sm hover:bg-primary-dark transition"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr class="border-t border-gray-500" />
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-2"
+        >
+          <p class="text-muted text-sm order-1 sm:order-0">
+            © 2025 SportRush rights reserved.
+          </p>
+          <div class="flex items-center gap-1">
+            <img alt="card" src="./images/amex.svg" />
+            <img alt="card" src="./images/discover.svg" />
+            <img alt="card" src="./images/mastercard.svg" />
+            <img alt="card" src="./images/visa.svg" />
+            <img alt="card" src="./images/shop.svg" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
 </html>

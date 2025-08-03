@@ -3,40 +3,30 @@
     "id": 1,
     "title": "Ultraboost 5",
     "category": "Women Running",
-    "price": 45.0,
-    "oldPrice": 50.0,
+    "badge": "Trending",
+    "price": 45.00,
+    "originalPrice": 50.00,
     "discount": "save 25%",
-    "img": "/images/product/Galaxy7RunningShoes-1.png",
-    "tag": "New"
+    "image": "./images/product/Galaxy7RunningShoes-1.png",
+    "stock": 15,
+    "rating": 4.5,
+    "reviews": 97,
+    "colors": ["Black", "Red"],
+    "sizes": [6, 7, 8]
   },
   {
     "id": 2,
-    "title": "Supernova Stride 2",
+    "title": "Galaxy 7 Running Shoes",
     "category": "Men Running",
-    "price": 60.0,
-    "oldPrice": 75.0,
-    "discount": "save 30%",
-    "img": "/images/product/SupernovaStride2RunningShoes_Black.png",
-    "tag": "Hot"
-  },
-  {
-    "id": 3,
-    "title": "Predator League",
-    "category": "Football",
-    "price": 80.0,
-    "oldPrice": 99.0,
-    "discount": "save 19%",
-    "img": "/images/product/PredatorLeagueTurfBoots_Red.png",
-    "tag": "Trending"
-  },
-  {
-    "id": 4,
-    "title": "Nike Pegasus Premium",
-    "category": "Men Running",
-    "price": 80.0,
-    "oldPrice": 99.0,
-    "discount": "save 19%",
-    "img": "/images/product/NikePegasusPremium.jpg",
-    "tag": "Trending"
+    "badge": "New Arrival",
+    "price": 60.00,
+    "originalPrice": 75.00,
+    "discount": "save 20%",
+    "image": "./images/product/Galaxy7RunningShoes-1.png",
+    "stock": 21,
+    "rating": 4.5,
+    "reviews": 97,
+    "colors": ["White", "Blue"],
+    "sizes": [7, 8, 9]
   }
 ]
