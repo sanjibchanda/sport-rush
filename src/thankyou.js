@@ -1,52 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const orderData = JSON.parse(localStorage.getItem("orderData")) || {};
   const allProducts = JSON.parse(localStorage.getItem("allProducts")) || [];
-  const orderData = JSON.parse(localStorage.getItem("orderData"));
+  const cartQuantities =
+    JSON.parse(localStorage.getItem("cartQuantities")) || {};
+  const cartSelections =
+    JSON.parse(localStorage.getItem("cartSelections")) || {};
 
-  if (!orderData) {
-    alert("No order data found!");
-    window.location.href = "index.html";
-    return;
-  }
-
-  // Order Number
+  // Generate Order Number
   document.getElementById("orderNumber").textContent =
     "#ORD" + Math.floor(100000 + Math.random() * 900000);
 
-  // Populate Customer Info
-  document.getElementById("customerName").textContent =
-    orderData.customer.firstName + " " + orderData.customer.lastName;
-  document.getElementById("customerEmail").textContent =
-    orderData.customer.email;
-  document.getElementById("customerPhone").textContent =
-    orderData.customer.phone;
-  document.getElementById("customerAddress").textContent =
-    orderData.customer.address +
-    ", " +
-    orderData.customer.city +
-    ", " +
-    orderData.customer.state +
-    " " +
-    orderData.customer.zipcode;
-
-  // Shipping & Payment
-  document.getElementById("deliveryService").textContent =
-    orderData.shippingMethod;
-  document.getElementById("paymentMethod").textContent =
-    orderData.paymentMethod;
-
-  // Cart Products
-  const cartProducts = allProducts.filter((p) =>
-    orderData.cartProducts.includes(p.id.toString())
-  );
-
+  // Render Product Items
+  const productsContainer = document.getElementById("thankyouProductList");
   let subtotal = 0;
   let discount = 0;
-  let couponDiscount = orderData.appliedCoupon === "SAVE10" ? 10 : 0;
-  let shippingCharge = orderData.shippingMethod === "Express" ? 9 : 0;
 
-  const productsHTML = cartProducts
-    .map((product) => {
-      const qty = orderData.cartQuantities[product.id] || 1;
+  const productListHTML = orderData.cartProducts
+    .map((id) => {
+      const product = allProducts.find((p) => p.id.toString() === id);
+      if (!product) return "";
+
+      const qty = cartQuantities[id] || 1;
+      const selection = cartSelections[id] || { color: "N/A", size: "N/A" };
+
       subtotal += product.price * qty;
       discount += (product.originalPrice - product.price) * qty;
 
@@ -61,8 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="w-full flex gap-4 justify-between">
             <div class="space-y-1 w-full">
               <p class="font-semibold font-heading">${product.title}</p>
-              <p class="text-sm"><span class="font-medium">Color:</span> Black</p>
-              <p class="text-sm"><span class="font-medium">Size:</span> 6</p>
+              <p class="text-sm"><span class="font-medium">Color:</span> ${
+                selection.color
+              }</p>
+              <p class="text-sm"><span class="font-medium">Size:</span> ${
+                selection.size
+              }</p>
             </div>
             <div class="flex flex-col justify-between items-end">
               <p class="font-semibold font-heading">$${product.price.toFixed(
@@ -74,17 +54,45 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .join("");
 
-  document.getElementById("thankyouProducts").innerHTML = productsHTML;
+  productsContainer.innerHTML = productListHTML;
 
+  // Fill Order Details
+  document.getElementById("orderDate").textContent =
+    new Date().toLocaleDateString();
+  document.getElementById("deliveryMethod").textContent =
+    orderData.shippingMethod;
+  document.getElementById("paymentMethod").textContent =
+    orderData.paymentMethod;
+  document.getElementById("customerName").textContent =
+    orderData.customer.firstName + " " + orderData.customer.lastName;
+  document.getElementById("customerEmail").textContent =
+    orderData.customer.email;
+  document.getElementById("customerPhone").textContent =
+    orderData.customer.phone;
+  document.getElementById("customerAddress").textContent =
+    orderData.customer.address +
+    ", " +
+    orderData.customer.city +
+    ", " +
+    orderData.customer.state +
+    " - " +
+    orderData.customer.zipcode;
+
+  // Calculate Summary
+  const shippingCharge = orderData.shippingMethod === "Express" ? 9 : 0;
+  const couponDiscount = orderData.appliedCoupon === "SAVE10" ? 10 : 0;
   const total = subtotal - discount - couponDiscount + shippingCharge;
 
-  // Order Summary
-  document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
-  document.getElementById("discount").textContent = `$${discount.toFixed(2)}`;
-  document.getElementById("coupon").textContent = `$${couponDiscount.toFixed(
+  document.getElementById("summarySubtotal").textContent = `$${subtotal.toFixed(
     2
   )}`;
-  document.getElementById("shipping").textContent =
-    shippingCharge === 0 ? "FREE" : `$${shippingCharge}`;
-  document.getElementById("totalAmount").textContent = `$${total.toFixed(2)}`;
+  document.getElementById("summaryDiscount").textContent = `$${discount.toFixed(
+    2
+  )}`;
+  document.getElementById(
+    "summaryCoupon"
+  ).textContent = `$${couponDiscount.toFixed(2)}`;
+  document.getElementById("summaryShipping").textContent =
+    shippingCharge === 0 ? "FREE" : `$${shippingCharge.toFixed(2)}`;
+  document.getElementById("summaryTotal").textContent = `$${total.toFixed(2)}`;
 });

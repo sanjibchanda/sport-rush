@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const cartQuantities =
     JSON.parse(localStorage.getItem("cartQuantities")) || {};
+  const cartSelections =
+    JSON.parse(localStorage.getItem("cartSelections")) || {};
   let appliedCoupon = null;
 
   function renderOrderSummary() {
@@ -26,6 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const productListHTML = cartProducts
       .map((product) => {
         const qty = cartQuantities[product.id] || 1;
+        const selection = cartSelections[product.id] || {
+          color: "N/A",
+          size: "N/A",
+        };
         subtotal += product.price * qty;
         discount += (product.originalPrice - product.price) * qty;
 
@@ -41,8 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="space-y-1 w-full">
               <p class="font-semibold font-heading">${product.title}</p>
               <p class="text-sm text-muted">item: #${product.id}</p>
-              <p class="text-sm"><span class="font-medium">Color:</span> Black</p>
-              <p class="text-sm"><span class="font-medium">Size:</span> 6</p>
+              <p class="text-sm"><span class="font-medium">Color:</span> ${
+                selection.color
+              }</p>
+              <p class="text-sm"><span class="font-medium">Size:</span> ${
+                selection.size
+              }</p>
             </div>
             <div class="flex flex-col justify-between items-end">
               <p class="font-semibold font-heading">$${product.price.toFixed(
