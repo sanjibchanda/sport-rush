@@ -184,6 +184,8 @@ async function renderProductDetail() {
     localStorage.setItem("cartQuantities", JSON.stringify(cartQuantities));
     localStorage.setItem("cartSelections", JSON.stringify(cartSelections));
 
+    updateHeaderCounts(); // update header cart count
+
     if (redirectTo) {
       window.location.href = redirectTo;
     } else {
@@ -199,31 +201,6 @@ async function renderProductDetail() {
   document.getElementById("checkoutBtn").addEventListener("click", () => {
     addProductToCartAndGo("checkout.html"); // Add to cart and redirect to checkout
   });
-
-  // document.getElementById('addToCart').addEventListener('click', () => {
-  //   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  //   let cartQuantities = JSON.parse(localStorage.getItem('cartQuantities')) || {};
-  //   let cartSelections = JSON.parse(localStorage.getItem('cartSelections')) || {};
-
-  //   const productId = product.id.toString();
-  //   const selectedQuantity = parseInt(document.querySelector('.quantity-value').textContent);
-  //   const selectedColor = document.querySelector('input[name="color"]:checked').nextElementSibling.textContent.trim();
-  //   const selectedSize = document.querySelector('input[name="size"]:checked').nextElementSibling.textContent.trim();
-
-  //   if (!cart.includes(productId)) {
-  //     cart.push(productId);
-  //   }
-
-  //   cartQuantities[productId] = selectedQuantity;
-  //   cartSelections[productId] = { color: selectedColor, size: selectedSize };
-
-  //   localStorage.setItem('cart', JSON.stringify(cart));
-  //   localStorage.setItem('cartQuantities', JSON.stringify(cartQuantities));
-  //   localStorage.setItem('cartSelections', JSON.stringify(cartSelections));
-
-  //   alert('Product added to Cart!');
-  //   window.location.href = 'cart.html';
-  // });
 }
 
 renderProductDetail();

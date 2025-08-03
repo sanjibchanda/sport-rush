@@ -1,50 +1,42 @@
-// import "./lib/slick.js";
-// Optionally import CSS
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import $ from "jquery";
 import "slick-carousel";
 import { toggleMenu } from "./utils.js";
-import { renderProducts, updateHeaderCounts } from './products.js';
-import { applyFilters, setupFilterUI } from './filters.js';
+import { renderProducts, updateHeaderCounts } from "./products.js";
+import { applyFilters, setupFilterUI } from "./filters.js";
 
-
-// Render products
 let allProducts = [];
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('./data/products.json')
-    .then(res => res.json())
-    .then(products => {
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("./data/products.json")
+    .then((res) => res.json())
+    .then((products) => {
       allProducts = products;
-      localStorage.setItem('allProducts', JSON.stringify(allProducts));
-      renderProducts(allProducts);
-      setupFilterUI(allProducts, onFilterChange);
+      localStorage.setItem("allProducts", JSON.stringify(allProducts));
+
+      // Render Main Product Grid (default)
+      renderProducts(allProducts, ".productContainer");
+
+      // Static Sections Rendering
+      renderProducts(allProducts.slice(0, 4), ".bestSellerContainer");
+      renderProducts(allProducts, ".newArrivalContainer");
+      renderProducts(allProducts, ".featuredContainer");
+
       updateHeaderCounts();
+      setupFilterUI(allProducts, onFilterChange);
     });
-});
 
-function onFilterChange(filters) {
-  const filteredProducts = applyFilters(allProducts, filters);
-  renderProducts(filteredProducts);
-}
+  // Event listeners for menu toggle
+  document
+    .querySelectorAll('[aria-label="Toggle Menu"]')
+    .forEach((button) => button.addEventListener("click", toggleMenu));
+  document
+    .querySelectorAll('[aria-label="Close Menu"]')
+    .forEach((button) => button.addEventListener("click", toggleMenu));
 
-
-
-// Event listeners for menu toggle
-document
-  .querySelectorAll('[aria-label="Toggle Menu"]')
-  .forEach((button) => button.addEventListener("click", toggleMenu));
-document
-  .querySelectorAll('[aria-label="Close Menu"]')
-  .forEach((button) => button.addEventListener("click", toggleMenu));
-
-
-
-
-// accordian
-document.addEventListener("DOMContentLoaded", function () {
+  // Accordion setup
   const headers = document.querySelectorAll(".accordion-header");
 
   headers.forEach((header) => {
@@ -52,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const content = header.querySelector(".accordion-content");
       const icon = header.querySelector("i");
 
-      // Toggle current accordion
       content.classList.toggle("hidden");
       icon.classList.toggle("fa-angle-down");
       icon.classList.toggle("fa-angle-up");
@@ -70,10 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-});
 
-/*single slider*/
-$(document).ready(function () {
+  // Sliders Init
   $(".single-item").slick({
     dots: true,
     arrows: false,
@@ -82,10 +71,7 @@ $(document).ready(function () {
     slidesToShow: 1,
     slidesToScroll: 1,
   });
-});
 
-/*feedback slider*/
-$(document).ready(function () {
   $(".feedback-slider").slick({
     dots: false,
     arrows: true,
@@ -111,10 +97,7 @@ $(document).ready(function () {
       },
     ],
   });
-});
 
-// news - slider;
-$(document).ready(function () {
   $(".news-slider").slick({
     dots: true,
     arrows: false,
@@ -147,3 +130,8 @@ $(document).ready(function () {
     ],
   });
 });
+
+function onFilterChange(filters) {
+  const filteredProducts = applyFilters(allProducts, filters);
+  renderProducts(filteredProducts, ".productContainer"); // Always render in main grid for filters
+}
