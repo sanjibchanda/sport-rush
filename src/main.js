@@ -11,7 +11,7 @@ import { applyFilters, setupFilterUI } from "./filters.js";
 let allProducts = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("./data/products.json")
+  fetch("/data/products.json")
     .then((res) => res.json())
     .then((products) => {
       allProducts = products;
