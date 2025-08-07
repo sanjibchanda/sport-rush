@@ -62,21 +62,21 @@ async function renderWishlist() {
       return `
         <div class="flex gap-4 py-4 border-b border-border">
             <div class="bg-white p-2 size-20 rounded-sm relative">
+            <a class="product-link block w-full mx-auto relative group overflow-hidden" href="product-details.html" data-id="${
+              product.id
+            }">
               <img alt="${
                 product.title
               }" class="w-full h-full object-contain" src="${product.image}" />
+              </a>
             </div>
             <div class="w-full flex gap-4 justify-between">
               <div class="space-y-1 w-full">
                 <p class="font-semibold font-heading">${product.title}</p>
+                <p class="text-muted text-sm">${product.category}</p>
                 <p class="text-sm">
-                  <span class="font-medium">Color:</span> <span>${
-                    selected.color
-                  }</span>
-                </p>
-                <p class="text-sm">
-                  <span class="font-medium">Size:</span> <span>${
-                    selected.size
+                  <span class="font-medium">Stock:</span> <span>${
+                    product.stock
                   }</span>
                 </p>
               </div>

@@ -1,0 +1,92 @@
+<!-- header.html -->
+<header class="sticky top-0 left-0 w-full z-50 bg-white shadow">
+  <div class="container max-w-[1320px] mx-auto px-3">
+    <div class="flex items-center justify-between py-4">
+      <div class="w-full lg:w-auto flex items-center justify-between">
+        <a href="/">
+          <img
+            src="./images/logo-dark.svg"
+            alt="logo"
+            class="max-w-[160px] lg:max-w-[220px]"
+          />
+        </a>
+        <ul class="flex items-center gap-3 navMenu">
+          <li class="lg:hidden">
+            <a href="#"><img src="./images/search.svg" alt="search" /></a>
+          </li>
+          <li class="lg:hidden">
+            <a href="#"
+              ><img
+                src="./images/shopping-cart-outlined.svg"
+                alt="shopping-cart"
+            /></a>
+          </li>
+          <li>
+            <button class="text-xl lg:hidden" aria-label="Toggle Menu">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        id="mobileMenu"
+        class="fixed top-0 right-0 h-full w-[320px] bg-white shadow-lg p-4 z-50 transform translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:p-0 lg:w-auto lg:shadow-none lg:bg-transparent transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex justify-end mb-4 lg:hidden">
+          <button class="text-2xl" aria-label="Close Menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <ul class="navMenu flex flex-col lg:flex-row lg:items-center gap-4">
+          <li>
+            <a href="products.html" class="block p-2 hover:text-blue-600"
+              >Shop</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block p-2 hover:text-blue-600">Deals & Offers</a>
+          </li>
+          <li>
+            <a href="#" class="block p-2 hover:text-blue-600">Accessories</a>
+          </li>
+          <li class="lg:hidden">
+            <a href="#" class="block p-2 hover:text-blue-600">Account</a>
+          </li>
+          <li class="lg:hidden">
+            <a href="#" class="block p-2 hover:text-blue-600">Wishlist</a>
+          </li>
+          <li class="hidden lg:block">
+            <a href="#"><img src="./images/search.svg" alt="search" /></a>
+          </li>
+          <li class="hidden lg:block">
+            <a href="#"><img src="./images/user.svg" alt="user" /></a>
+          </li>
+          <li class="hidden lg:block relative">
+            <a href="wishlist.html"
+              ><img src="./images/wishlist.svg" alt="wishlist" />
+              <span
+                id="wishlistCount"
+                class="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                >0</span
+              >
+            </a>
+          </li>
+          <li class="hidden lg:block relative">
+            <a href="cart.html"
+              ><img
+                src="./images/shopping-cart-outlined.svg"
+                alt="shopping-cart"
+              />
+              <span
+                id="cartCount"
+                class="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                >0</span
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

@@ -4,7 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 import $ from "jquery";
 import "slick-carousel";
 import { toggleMenu } from "./utils.js";
-import { renderProducts, updateHeaderCounts } from "./products.js";
+import { updateHeaderCounts, initHeaderEvents } from "./header.js";
+import { renderProducts } from "./products.js";
 import { applyFilters, setupFilterUI } from "./filters.js";
 
 let allProducts = [];
@@ -24,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
       renderProducts(allProducts, ".newArrivalContainer");
       renderProducts(allProducts, ".featuredContainer");
 
-      updateHeaderCounts();
+      updateHeaderCounts(); // Initialize Header Counts
+      initHeaderEvents(); // Initialize Menu Open/Close
       setupFilterUI(allProducts, onFilterChange);
     });
 

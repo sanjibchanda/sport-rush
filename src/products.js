@@ -43,11 +43,6 @@ export function renderProducts(
           <span class="text-xs font-medium text-muted bg-white px-2 py-0.5 rounded-full">${
             product.discount
           }</span>
-          <button type="button" class="flex items-center gap-1 bg-white hover:bg-primary p-2 rounded-sm ml-auto add-to-cart" data-id="${
-            product.id
-          }">
-            <img src="images/shopping-cart-outlined.svg" alt="shopping-cart-outlined" class="w-5" />
-          </button>
         </div>
       </div>
     </div>
@@ -137,3 +132,11 @@ export function updateHeaderCounts() {
   document.getElementById("wishlistCount").textContent = wishlist.length;
   document.getElementById("cartCount").textContent = cart.length;
 }
+
+// add to cart button
+
+/* <button type="button" class="flex items-center gap-1 bg-white hover:bg-primary p-2 rounded-sm ml-auto add-to-cart" data-id="${
+            product.id
+          }">
+            <img src="images/shopping-cart-outlined.svg" alt="shopping-cart-outlined" class="w-5" />
+          </button> */

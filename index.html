@@ -332,7 +332,11 @@
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           <div class="bg-surface p-5 text-center">
-            <a href="/categories.html" class="block space-y-6">
+            <a
+              href="categories.html"
+              class="category-link block space-y-6"
+              data-category="Running shoes"
+            >
               <img
                 src="images/team-sports.svg"
                 alt="team-sports"
@@ -342,7 +346,11 @@
             </a>
           </div>
           <div class="bg-surface p-5 text-center">
-            <a href="#" class="block space-y-6">
+            <a
+              href="categories.html"
+              class="category-link block space-y-6"
+              data-category="Casual shoes"
+            >
               <img
                 src="images/individual-sports.svg"
                 alt="team-sports"
@@ -352,7 +360,11 @@
             </a>
           </div>
           <div class="bg-surface p-5 text-center">
-            <a href="#" class="block space-y-6">
+            <a
+              href="categories.html"
+              class="category-link block space-y-6"
+              data-category="Sports shoes"
+            >
               <img
                 src="images/outdoor-sports.svg"
                 alt="team-sports"
@@ -362,7 +374,11 @@
             </a>
           </div>
           <div class="bg-surface p-5 text-center">
-            <a href="#" class="block space-y-6">
+            <a
+              href="categories.html"
+              class="category-link block space-y-6"
+              data-category="Hiking shoes"
+            >
               <img
                 src="images/adventure.svg"
                 alt="team-sports"
@@ -372,23 +388,31 @@
             </a>
           </div>
           <div class="bg-surface p-5 text-center">
-            <a href="#" class="block space-y-6">
+            <a
+              href="categories.html"
+              class="category-link block space-y-6"
+              data-category="Training shoes"
+            >
               <img
                 src="images/fitness.svg"
-                alt="team-sports"
+                alt="fitness"
                 class="size-16 object-contain mx-auto"
               />
               <p class="font-semibold font-heading">Fitness</p>
             </a>
           </div>
           <div class="bg-surface p-5 text-center">
-            <a href="#" class="block space-y-6">
+            <a
+              href="categories.html"
+              class="category-link block space-y-6"
+              data-category="Accessories"
+            >
               <img
                 src="images/utilities.svg"
                 alt="team-sports"
                 class="size-16 object-contain mx-auto"
               />
-              <p class="font-semibold font-heading">Utilities</p>
+              <p class="font-semibold font-heading">Accessories</p>
             </a>
           </div>
         </div>
@@ -1124,5 +1148,16 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="module" src="./src/main.js"></script>
+    <script>
+      document.querySelectorAll(".category-link").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const category = link.dataset.category;
+          window.location.href = `categories.html?category=${encodeURIComponent(
+            category
+          )}`;
+        });
+      });
+    </script>
   </body>
 </html>
